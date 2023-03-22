@@ -351,6 +351,12 @@ h6 {
   -moz-box-shadow: 1px 0px 38px 0px rgba(61, 224, 147, 0.73);
   box-shadow: 1px 0px 38px 0px rgba(61, 224, 147, 0.73);
 }
+.form-input__error:focus {
+  outline: 1px solid #ff2c2c;
+  -webkit-box-shadow: 1px 0px 38px 0px rgba(255, 44, 44, 0.73);
+  -moz-box-shadow: 1px 0px 38px 0px rgba(255, 44, 44, 0.73);
+  box-shadow: 1px 0px 38px 0px rgba(255, 44, 44, 0.73);
+}
 .form-button {
   text-align: center;
   text-transform: uppercase;
