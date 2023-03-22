@@ -27,27 +27,28 @@
       <section class="main-notation">
         <div class="main-notation__container">
           <div class="main-notation__body">
-            <div class="main-notation__breadcrumbs">
+            <div class="main-breadcrumbs">
               <a href="../index.html"><img src="../img/arrow-left.svg" alt=""><span>На главную</span></a>
             </div>
-            <div class="main-notation__title">Перевод чисел в различные системы счисления с решением</div>
-            <div class="main-notation__descr">Калькулятор позволяет переводить целые и дробные числа из одной системы
+            <h1 class="main-notation__title">Перевод чисел в различные системы счисления с решением</h1>
+            <p class="main-notation__descr">Калькулятор позволяет переводить целые и дробные числа из одной системы
               счисления в другую. Основание системы счисления не может быть меньше 2 и больше 36 (10 цифр и 26 латинских
               букв всё-таки). Длина чисел не должна превышать 30 символов. Для ввода дробных чисел используйте символ .
               или ,. Чтобы перевести число из одной системы в другую, введите исходное число в первое поле, основание
               исходной системы счисления во второе и основание системы счисления, в которую нужно перевести число, в
-              третье поле, после чего нажмите кнопку "Перевести".</div>
-            <form name="converterForm" action="#" class="main-notation__converter-block converter-block">
-              <label class="converter-block__label converter-block__label_num">
+              третье поле, после чего нажмите кнопку "Перевести".</p>
+            <form name="converterForm" action="#" class="main-notation__converter-block converter-block form">
+              <label class="converter-block__label converter-block__label_num form-label">
                 <span>Число:</span>
-                <input required type="text" name="number" class="converter-block__input converter-block__input_num">
+                <input required type="text" name="number"
+                  class="converter-block__input converter-block__input_num form-input">
+                <div class="converter-block__text_error">Недопустимый формат числа</div>
               </label>
               <div class="converter-block__convert">
                 <label class="converter-block__label">
                   <!-- <span>перевести из</span> -->
                   <select name="fromNum" id="converterBlockFrom"
-                    class="converter-block__input converter-block__input_select converter-block__input_select-from">
-                    <option value="1" class="converter-block__input_option">1</option>
+                    class="converter-block__input converter-block__input_select converter-block__input_select-from form-input">
                     <option value="2" selected class="converter-block__input_option">2 - Двоичная</option>
                     <option value="3" class="converter-block__input_option">3</option>
                     <option value="4" class="converter-block__input_option">4</option>
@@ -91,8 +92,7 @@
                 <label class="converter-block__label">
                   <!-- <span>в</span> -->
                   <select name="toNum" id="converterBlockTo"
-                    class="converter-block__input converter-block__input_select converter-block__input_select-to">
-                    <option value="1" class="converter-block__input_option">1</option>
+                    class="converter-block__input converter-block__input_select converter-block__input_select-to form-input">
                     <option value="2" class="converter-block__input_option">2 - Двоичная</option>
                     <option value="3" class="converter-block__input_option">3</option>
                     <option value="4" class="converter-block__input_option">4</option>
@@ -131,7 +131,7 @@
                   </select>
                 </label>
               </div>
-              <button name="button" type="submit" class="converter-block__button">перевести</button>
+              <button name="button" type="submit" class="converter-block__button form-button">перевести</button>
             </form>
           </div>
         </div>

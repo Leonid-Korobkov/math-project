@@ -1,0 +1,103 @@
+/* Перевод с/с */
+.main-notation {
+  /* background: url(img/noise_black.jpg) ; */
+  /* min-height: calc(100vh - 81px - 67px); */
+  padding-bottom: 60px;
+}
+.main-notation__title {
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 15px;
+}
+@media (min-width: 1024px) {
+  .main-notation__descr {
+    max-width: 970px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+}
+.main-notation__descr {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+
+.converter-block__label_num {
+  position: relative;
+}
+.converter-block__text_error {
+  position: absolute;
+  left: 115px;
+  bottom: 115%;
+  right: 0;
+  font-size: 14px;
+  color: #ff2c2c;
+  text-transform:none;
+  display: none;
+  padding: 10px;
+  background: #f0e7cf;
+  border-radius: 10px;
+}
+.converter-block__img {
+  width: 75px;
+  height: 24px;
+}
+.converter-block__img img {
+  width: 100%;
+  height: 100%;
+}
+
+.converter-block__convert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 580px) {
+  .converter-block__convert,
+  .converter-block {
+    flex-direction: column;
+  }
+  .converter-block__img {
+    transform: rotate(90deg);
+    width: 45px;
+    height: 75px;
+  }
+}
+.converter-block__input_select-from {
+}
+.converter-block__input_option {
+}
+.converter-block__input_select-to {
+}
+
+.notation-result {
+  text-align: center;
+}
+.notation-result__container {
+}
+.notation-result__body {
+}
+.notation-result__title {
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #da67c4;
+  margin-bottom: 8px;
+}
+.notation-result__result-num {
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.notation-result__result-num-from-notation,
+.notation-result__result-num-to-notation {
+  color: #f0e7cf;
+}
+.notation-result__result-num-from,
+.notation-result__result-num-to {
+  word-wrap: break-word;
+}

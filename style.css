@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('notation/notation.css');
+@import url('guess/guess.css');
+
 html {
   --main-color: #fff;
 }
-
 * {
   padding: 0px;
   margin: 0px;
@@ -78,6 +80,7 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
+
 .wrapper {
   min-height: 100vh;
   min-width: 100vw;
@@ -86,7 +89,6 @@ h6 {
   overflow: hidden;
   background: url(img/noise_black.jpg);
   position: relative;
-  /* z-index: -1; */
 }
 .wrapper > main {
   flex: 1 1 auto;
@@ -101,7 +103,7 @@ h6 {
   margin: 0 auto;
   padding: 0 15px;
 }
-.wrapper__circle  {
+.wrapper__circle {
   position: absolute;
   pointer-events: none;
   height: 700px;
@@ -131,13 +133,10 @@ h6 {
   height: 950px;
   width: 950px;
 }
-/* .main-notation .wrapper{
-	background: url(img/noise_black.jpg);
-} */
+
 .header {
   border-bottom: 1px solid #f0e7cf;
   z-index: 2;
-  /* background: url(img/noise_black.jpg); */
 }
 .header__body {
   display: flex;
@@ -152,12 +151,10 @@ h6 {
   min-width: 100%;
   object-fit: cover;
 }
-
 .footer {
   font-size: 14px;
   border-top: 1px solid #f0e7cf;
   z-index: 2;
-  /* background: url(img/noise_black.jpg); */
 }
 .footer__body {
   display: flex;
@@ -166,6 +163,18 @@ h6 {
   flex-direction: column;
   padding: 12px 0;
 }
+
+.main-breadcrumbs {
+  margin-bottom: 25px;
+  margin-top: 20px;
+  color: #8a8a8a;
+  font-size: 16px;
+  z-index: 100;
+}
+.main-breadcrumbs span {
+  margin-left: 8px;
+}
+
 /* Главная страница */
 .main {
   padding: 50px 0;
@@ -238,7 +247,7 @@ h6 {
 .card-text-transform .card-text-transform__text {
   font-weight: bold;
   font-size: 45px;
-  color: #fff;
+  color: var(--main-color);
   margin-bottom: 14px;
 }
 .card-text-transform__img {
@@ -263,7 +272,7 @@ h6 {
   transition: all 0.5s cubic-bezier(0.6, -0.41, 0.6, 1.56) 0s;
   font-weight: bold;
   font-size: 24px;
-  color: #fff;
+  color: var(--main-color);
 }
 .card-basic_1 .card-basic__text {
   color: rgb(212, 252, 121);
@@ -309,40 +318,9 @@ h6 {
     width: 100%;
   }
 }
-/* Перевод с/с */
-.main-notation {
-  /* background: url(img/noise_black.jpg) ; */
-  /* min-height: calc(100vh - 81px - 67px); */
-  padding: 20px 0 60px;
-}
-.main-notation__breadcrumbs {
-  margin-bottom: 25px;
-  color: #8a8a8a;
-  font-size: 16px;
-  z-index: 100;
-}
-.main-notation__breadcrumbs span {
-  margin-left: 8px;
-}
-.main-notation__title {
-  font-weight: bold;
-  font-size: 32px;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 15px;
-}
-@media (min-width: 1024px) {
-  .main-notation__descr {
-    max-width: 970px;
-    margin: 0 auto;
-    text-align: justify;
-  }
-}
-.main-notation__descr {
-  font-size: 16px;
-  margin-bottom: 30px;
-}
-.converter-block {
+
+/* Общие стили для форм */
+.form {
   max-width: 600px;
   margin: 0 auto;
   display: flex;
@@ -352,58 +330,28 @@ h6 {
   text-transform: uppercase;
   color: #3de093;
 }
-.converter-block__label {
+.form-label {
   display: flex;
   align-items: center;
   gap: 15px;
-}
-.converter-block__label_num {
   margin-bottom: 15px;
   width: 100%;
 }
-.converter-block__input_num {
-  width: 100%;
-}
-.converter-block__img {
-  width: 75px;
-  height: 24px;
-}
-.converter-block__img img {
-  width: 100%;
-  height: 100%;
-}
-
-.converter-block__convert {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.converter-block__input {
+.form-input {
   background: #f0e7cf;
   border-radius: 10px;
   padding: 6px 15px;
   color: #202020;
   font-size: 16px;
+  width: 100%;
 }
-@media (max-width: 580px) {
-  .converter-block__convert,
-  .converter-block {
-    flex-direction: column;
-  }
-  .converter-block__img {
-    transform: rotate(90deg);
-    width: 45px;
-    height: 75px;
-  }
+.form-input:focus {
+  outline: 1px solid #3de093;
+  -webkit-box-shadow: 1px 0px 38px 0px rgba(61, 224, 147, 0.73);
+  -moz-box-shadow: 1px 0px 38px 0px rgba(61, 224, 147, 0.73);
+  box-shadow: 1px 0px 38px 0px rgba(61, 224, 147, 0.73);
 }
-.converter-block__input_select-from {
-}
-.converter-block__input_option {
-}
-.converter-block__input_select-to {
-}
-.converter-block__button {
+.form-button {
   text-align: center;
   text-transform: uppercase;
   color: #202020;
@@ -412,33 +360,4 @@ h6 {
   width: 100%;
   padding: 10px 20px;
   margin-top: 20px;
-}
-
-.notation-result {
-  text-align: center;
-}
-.notation-result__container {
-}
-.notation-result__body {
-}
-.notation-result__title {
-  font-weight: bold;
-  font-size: 32px;
-  text-transform: uppercase;
-  color: #da67c4;
-  margin-bottom: 8px;
-}
-.notation-result__result-num {
-  font-weight: bold;
-  font-size: 32px;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-.notation-result__result-num-from-notation,
-.notation-result__result-num-to-notation {
-  color: #8a8a8a;
-}
-.notation-result__result-num-from,
-.notation-result__result-num-to {
-  word-wrap: break-word;
 }
