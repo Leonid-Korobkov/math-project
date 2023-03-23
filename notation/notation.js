@@ -1,41 +1,66 @@
+// const hexNumber = '12F.443';
+// const integerPart = parseInt(hexNumber, 16).toString(2);
+
+// const fraction = parseFloat(`0.${hexNumber.split('.')[1]}`, 16) / 16;
+
+// let fractionalPart = '';
+// let f = fraction;
+
+// for (let i = 0; i < 16; i++) {
+//   f *= 2;
+//   fractionalPart += Math.floor(f).toString();
+//   f -= Math.floor(f);
+// }
+
+// const binaryNumber = `${integerPart}.${fractionalPart}`;
+
+// console.log(binaryNumber); // Output: 100101111.0100010000110000
+
+
+
+
 const form = document.forms.converterForm
 const resultBody = document.querySelector('.notation-result__body')
 const formButton = form.button
 const errorMessage = document.querySelector('.converter-block__text_error ')
 const allowedChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const formNumber = form.number
 
-function addErrorMessege(base) {
+function addErrorMessage(base) {
   errorMessage.style.display = 'block'
   errorMessage.innerHTML = `Допустимые символы: <span style="color: #47c527">${allowedChars.slice(0, base)}</span>`
   formButton.style.opacity = '0.3'
   formButton.style.pointerEvents = 'none'
-  form.number.classList.add('form-input__error')
+  formNumber.classList.add('form-input__error')
 }
-function removeErrorMessege() {
+function removeErrorMessage() {
   errorMessage.style.display = 'none'
   formButton.style.opacity = '1'
   formButton.style.pointerEvents = 'all'
-  form.number.classList.remove('form-input__error')
+  formNumber.classList.remove('form-input__error')
 }
 function validateNumberInput(number, base) {
-  const isBase = /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) && parseFloat(number, base).toString(base) === number.toString().toLowerCase()
-  if (!isBase) addErrorMessege(base)
-  else removeErrorMessege()
+  const isBase = /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) && parseInt(number, base).toString(base) === number.toString().toLowerCase()
+  if (!isBase) {
+    addErrorMessage(base);
+  } else {
+    removeErrorMessage();
+  }
   return isBase
 }
 
 form.addEventListener('keydown', function (e) {
-  if (!validateNumberInput(isFinite(form.number.value) ? +form.number.value : form.number.value, +form.fromNum.value) && event.key === "Enter") {
+  if (!validateNumberInput(isFinite(formNumber.value) ? +formNumber.value : formNumber.value, +form.fromNum.value) && e.key === 'Enter') {
     e.preventDefault()
   }
 })
 form.addEventListener('submit', function (e) {
   e.preventDefault()
-  const number = isFinite(form.number.value) ? +form.number.value : form.number.value
+  const number = isFinite(formNumber.value) ? +formNumber.value : formNumber.value
   const numberFrom = +form.fromNum.value
   const numberTo = +form.toNum.value
 
-  const decimalNumber = parseFloat(number, numberFrom)
+  const decimalNumber = parseInt(number, numberFrom)
   const convertedNumber = decimalNumber.toString(numberTo)
 
   const stringToHtml = `
@@ -48,11 +73,11 @@ form.addEventListener('submit', function (e) {
     `
   resultBody.innerHTML = stringToHtml
 })
-form.number.addEventListener('input', function (e) {
-  validateNumberInput(isFinite(form.number.value) ? +form.number.value : form.number.value, +form.fromNum.value)
+formNumber.addEventListener('input', function (e) {
+  validateNumberInput(isFinite(formNumber.value) ? +formNumber.value : formNumber.value, +form.fromNum.value)
 })
 form.fromNum.addEventListener('change', function (e) {
-  validateNumberInput(isFinite(form.number.value) ? +form.number.value : form.number.value, +form.fromNum.value)
+  validateNumberInput(isFinite(formNumber.value) ? +formNumber.value : formNumber.value, +form.fromNum.value)
 })
 
 //Альтернативный вариант валидации формы

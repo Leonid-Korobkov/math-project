@@ -178,7 +178,7 @@ h6 {
 /* Главная страница */
 .main {
   padding: 50px 0;
-  background: url('img/bg_programs.png') no-repeat center center / cover;
+  background: url('img/bg_programs.jpg') no-repeat center center / cover;
 }
 .main__body {
   display: grid;
