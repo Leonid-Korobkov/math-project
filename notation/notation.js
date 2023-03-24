@@ -21,12 +21,8 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
-  const str = '000000'
-  const isAllZeros = str.split('').every((char) => char === '0')
-  console.log(isAllZeros) // true
-  if (number.split('').every((char) => char === '0')) {
-    addErrorMessage(base,`Строка не может быть пустой или состоять только из нулей!<br>Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`)
-  }
+  console.log(parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase())
+  console.log(number.toString().toLowerCase())
   return (
     /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) &&
     parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() === number.toString().toLowerCase()
@@ -36,6 +32,14 @@ function isValidate(number, base) {
 let prevNumberIsBase = true
 function validateNumberInput(number, base) {
   const isBase = isValidate(number, base)
+  // Проверка, что поле не пустое или не состоит только из нулей
+  if (number.split('').every((char) => char === '0') || number === '') {
+    addErrorMessage(
+      base,
+      `Строка не может быть пустой или состоять только из нулей!<br>Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`
+    )
+    return false
+  }
   // Если предыдущая проверака на валидацию не прошла
   if (isBase === false && prevNumberIsBase === false) return false
   // Действия в зависимости от того, прошла ли проверка
@@ -100,7 +104,7 @@ formNumberFrom.addEventListener('change', function () {
 })
 
 function convertFromBaseToDec(number, baseFrom) {
-  let result = parseBigInt(number, baseFrom)
+  let result = parseBigInt(number.toLowerCase(), baseFrom)
   let str = ''
   for (let i = 0; i < number.length; i++) {
     str += `${parseInt(number[i], baseFrom)}·${baseFrom}<sup>${number.length - i - 1}</sup> + `
@@ -140,6 +144,8 @@ function convertFromDecToBase(number, baseTo) {
     num = num / BigInt(baseTo)
     i++
   }
+  // let result = number.toString(baseTo)
+
   str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="color: #00bc64">${result}<sub>${baseTo}</span></sub></li>`
   let strToHTML = `
     <div class="solution-conversion__text">
