@@ -43,6 +43,9 @@
   border-radius: 10px;
   word-wrap: break-word;
 }
+.converter-block__text_error span {
+  color: #00bc64;
+}
 .converter-block__img {
   width: 75px;
   height: 24px;

@@ -5,7 +5,7 @@ const allowedChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const formNumber = form.number
 const formNumberFrom = form.fromNum
 
-function addErrorMessage(base, message = `Допустимые символы: <span style="color: #47c527">${allowedChars.slice(0, base)}</span>`) {
+function addErrorMessage(base, message = `Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`) {
   errorMessage.style.display = 'block'
   errorMessage.innerHTML = message
   formButton.style.opacity = '0.3'
@@ -21,6 +21,12 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
+  const str = '000000'
+  const isAllZeros = str.split('').every((char) => char === '0')
+  console.log(isAllZeros) // true
+  if (number.split('').every((char) => char === '0')) {
+    addErrorMessage(base,`Строка не может быть пустой или состоять только из нулей!<br>Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`)
+  }
   return (
     /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) &&
     parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() === number.toString().toLowerCase()
