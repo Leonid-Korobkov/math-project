@@ -21,8 +21,6 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
-  console.log(parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase())
-  console.log(number.toString().toLowerCase())
   return (
     /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) &&
     parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() === number.toString().toLowerCase()
@@ -89,7 +87,10 @@ form.addEventListener('submit', function (e) {
     <div class="notation-result__result-num">
         <span class="notation-result__result-num-from">${number}<sub class="notation-result__result-num-from-notation">${numberFrom}</sub></span>
         <span> = </span>
-        <span class="notation-result__result-num-to">${convertedNumber}<sub class="notation-result__result-num-to-notation">${numberTo}</sub></span>
+        <span class="notation-result__result-num-to">${groupDigits(
+          convertedNumber,
+          numberTo
+        )}<sub class="notation-result__result-num-to-notation">${numberTo}</sub></span>
     </div>
   `
   resultBody.innerHTML = resultHTML
@@ -115,7 +116,10 @@ function convertFromBaseToDec(number, baseFrom) {
     <div class="solution-conversion__title">Решение:</div>
     <div class="solution-conversion__text">
       <p class="solution-conversion__descr">Переводим <span style="color: #202020;text-transform: uppercase;">${number}<sub>${baseFrom}</sub></span> в десятичную систему счисления:</p>
-      <div class="solution-conversion__result-text">${number}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${result}<sub>10</sub></span></div>
+      <div class="solution-conversion__result-text">${number}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${groupDigits(
+    result.toString(),
+    '10'
+  )}<sub>10</sub></span></div>
     </div>
   </div>
   `
@@ -126,7 +130,7 @@ function convertFromBaseToDec(number, baseFrom) {
 }
 
 function convertFromDecToBase(number, baseTo) {
-  let result = ''
+  // let result = ''
   let str = ''
   let num = BigInt(number)
   let i = 1
@@ -140,13 +144,12 @@ function convertFromDecToBase(number, baseTo) {
         ? `<code><span>${remainder}</span></code>`
         : `<code>${remainder}</code>, <code>${remainder}</code> = <code><span>${remainderStr}</span></code>`
     }</li>`
-    result = (num % BigInt(baseTo)).toString(baseTo) + result
+    // result = (num % BigInt(baseTo)).toString(baseTo) + result
     num = num / BigInt(baseTo)
     i++
   }
-  // let result = number.toString(baseTo)
-
-  str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="color: #00bc64">${result}<sub>${baseTo}</span></sub></li>`
+  let result = number.toString(baseTo)
+  str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="color: #00bc64">${groupDigits(result.toString(), baseTo)}<sub>${baseTo}</span></sub></li>`
   let strToHTML = `
     <div class="solution-conversion__text">
       <p class="solution-conversion__descr">Переводим целую часть ${number}<sub>10</sub> в ${baseTo}-ую систему последовательным делением на ${baseTo}:</p>
@@ -167,4 +170,38 @@ function parseBigInt(str, base = 10) {
     bigint += base ** BigInt(i) * BigInt(code)
   }
   return bigint
+}
+
+function groupDigits(number, base) {
+  let groupSize
+  switch (base) {
+    case '2':
+      groupSize = 8
+      break
+    case '10':
+    case '8':
+      groupSize = 3
+      break
+    case '16':
+      groupSize = 4
+      break
+    default: return number
+  }
+  const digits = number.toString().split('').reverse()
+  const groups = []
+  let currentGroup = ''
+
+  for (let i = 0; i < digits.length; i++) {
+    currentGroup = digits[i] + currentGroup
+    if ((i + 1) % groupSize === 0) {
+      groups.unshift(currentGroup)
+      currentGroup = ''
+    }
+  }
+
+  if (currentGroup !== '') {
+    groups.unshift(currentGroup)
+  }
+
+  return groups.join(' ')
 }
