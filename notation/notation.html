@@ -33,15 +33,15 @@
             <h1 class="main-notation__title">Перевод чисел в различные системы счисления с решением</h1>
             <p class="main-notation__descr">Калькулятор позволяет переводить целые и дробные числа из одной системы
               счисления в другую. Основание системы счисления не может быть меньше 2 и больше 36 (10 цифр и 26 латинских
-              букв всё-таки). Длина чисел не должна превышать 30 символов. Для ввода дробных чисел используйте символ .
+              букв всё-таки). Длина чисел не должна превышать 54 символа. Для ввода дробных чисел используйте символ .
               или ,. Чтобы перевести число из одной системы в другую, введите исходное число в первое поле, основание
               исходной системы счисления во второе и основание системы счисления, в которую нужно перевести число, в
               третье поле, после чего нажмите кнопку "Перевести".</p>
-            <form name="converterForm" action="#" class="main-notation__converter-block converter-block form">
+            <form method="POST" name="converterForm" action="#"
+              class="main-notation__converter-block converter-block form">
               <label class="converter-block__label converter-block__label_num form-label">
                 <span>Число:</span>
-                <input required type="text" name="number"
-                  class="converter-block__input converter-block__input_num form-input">
+                <input type="text" name="number" class="converter-block__input converter-block__input_num form-input">
                 <div class="converter-block__text_error">Недопустимый формат числа</div>
               </label>
               <div class="converter-block__convert">
@@ -131,7 +131,8 @@
                   </select>
                 </label>
               </div>
-              <button name="button" type="submit" class="converter-block__button form-button">перевести</button>
+              <button disabled name="button" type="submit"
+                class="converter-block__button form-button">перевести</button>
             </form>
           </div>
         </div>
@@ -139,8 +140,13 @@
 
       <section class="notation-result">
         <div class="notation-result__container">
-          <div class="notation-result__body">
-          </div>
+          <div class="notation-result__body"></div>
+        </div>
+      </section>
+
+      <section class="solution-conversion">
+        <div class="solution-conversion__container">
+          <div class="solution-conversion__body"></div>
         </div>
       </section>
     </main>
@@ -154,52 +160,60 @@
         </div>
       </div>
     </footer>
-
-    <div class="wrapper__circle wrapper__circle_1">
-      <svg width="100%" height="100%" viewBox="0 0 955 955" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- <div class="wrapper__circle wrapper__circle_1">
+      <img src="../img/circle-red.svg" alt="">
+    </div>
+    <div class="wrapper__circle wrapper__circle_2">
+      <img src="../img/circle-green.svg" alt="">
+    </div>
+    <div class="wrapper__circle wrapper__circle_3">
+      <img src="../img/circle-blue.svg" alt="">
+    </div> -->
+    <!-- <div class="wrapper__circle wrapper__circle_1">
+      <svg width="100%" height="100%" viewbox="0 0 955 955" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_f_56_2)">
           <circle cx="477.5" cy="477.5" r="234.5" fill="#F75C5C" />
         </g>
         <defs>
-          <filter id="filter0_f_56_2" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse"
+          <filter id="filter0_f_56_2" x="0" y="0" width="100%" height="100%" filterunits="userSpaceOnUse"
             color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="121.5" result="effect1_foregroundBlur_56_2" />
+            <feflood flood-opacity="0" result="BackgroundImageFix" />
+            <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <fegaussianblur stddeviation="121.5" result="effect1_foregroundBlur_56_2" />
           </filter>
         </defs>
       </svg>
     </div>
     <div class="wrapper__circle wrapper__circle_2">
-      <svg width="100%" height="100%" viewBox="0 0 955 955" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="100%" height="100%" viewbox="0 0 955 955" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_f_56_2)">
           <circle cx="477.5" cy="477.5" r="234.5" fill="#3DE093" />
         </g>
         <defs>
-          <filter id="filter0_f_56_3" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse"
+          <filter id="filter0_f_56_3" x="0" y="0" width="100%" height="100%" filterunits="userSpaceOnUse"
             color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="121.5" result="effect1_foregroundBlur_56_2" />
+            <feflood flood-opacity="0" result="BackgroundImageFix" />
+            <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <fegaussianblur stddeviation="121.5" result="effect1_foregroundBlur_56_2" />
           </filter>
         </defs>
       </svg>
     </div>
     <div class="wrapper__circle wrapper__circle_3">
-      <svg width="100%" height="100%" viewBox="0 0 955 955" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="100%" height="100%" viewbox="0 0 955 955" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_f_56_2)">
           <circle cx="477.5" cy="477.5" r="234.5" fill="#00C9FF" />
         </g>
         <defs>
-          <filter id="filter0_f_56_4" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse"
+          <filter id="filter0_f_56_4" x="0" y="0" width="100%" height="100%" filterunits="userSpaceOnUse"
             color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="121.5" result="effect1_foregroundBlur_56_2" />
+            <feflood flood-opacity="0" result="BackgroundImageFix" />
+            <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <fegaussianblur stddeviation="121.5" result="effect1_foregroundBlur_56_2" />
           </filter>
         </defs>
       </svg>
-    </div>
+    </div> -->
   </div>
   <script src="notation.js"></script>
 </body>

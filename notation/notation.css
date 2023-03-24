@@ -2,7 +2,7 @@
 .main-notation {
   /* background: url(img/noise_black.jpg) ; */
   /* min-height: calc(100vh - 81px - 67px); */
-  padding-bottom: 60px;
+  padding-bottom: 40px;
 }
 .main-notation__title {
   font-weight: bold;
@@ -23,7 +23,9 @@
   margin-bottom: 30px;
 }
 
-
+.converter-block__input_num {
+  text-transform: uppercase;
+}
 .converter-block__label_num {
   position: relative;
 }
@@ -39,6 +41,7 @@
   padding: 10px;
   background: #f0e7cf;
   border-radius: 10px;
+  word-wrap: break-word;
 }
 .converter-block__img {
   width: 75px;
@@ -66,25 +69,20 @@
     height: 75px;
   }
 }
-.converter-block__input_select-from {
-}
-.converter-block__input_option {
-}
-.converter-block__input_select-to {
-}
 
-.notation-result {
+.notation-result__body:not(:empty){
   text-align: center;
-}
-.notation-result__container {
+  padding-bottom: 10px;
 }
 .notation-result__body {
+  opacity: 0;
+  transition: all 0.3s ease 0s;
 }
 .notation-result__title {
   font-weight: bold;
   font-size: 32px;
   text-transform: uppercase;
-  color: #da67c4;
+  color: #fe3377;
   margin-bottom: 8px;
 }
 .notation-result__result-num {
@@ -100,4 +98,77 @@
 .notation-result__result-num-from,
 .notation-result__result-num-to {
   word-wrap: break-word;
+}
+.notation-result__result-num-to {
+  color: #3de093;
+}
+
+.solution-conversion__body:not(:empty){
+  margin-bottom: 50px;
+  padding: 25px;
+}
+.solution-conversion__body {
+  background: #f0e7cf;
+  border-radius: 30px;
+  transition: all .3s ease 0s;
+  /* opacity: 0; */
+}
+.solution-conversion__title {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #F51963;
+  margin-bottom: 10px;
+}
+.solution-conversion__descr {
+  display: block;
+  margin-bottom: 3px;
+  text-transform: none;
+  word-wrap: break-word;
+}
+.solution-conversion__text {
+  color: #202020;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+.solution-conversion__text span{
+  color: #00bc64;
+}
+.solution-conversion__text:not(:last-child) {
+  margin-bottom: 25px;
+}
+.solution-conversion__text p, .solution-conversion__text span {
+  word-wrap: break-word;
+}
+.solution-conversion__list {
+  margin-top: 10px;
+}
+.solution-conversion__item:not(:last-child) {
+  margin-bottom: 8px;
+}
+.solution-conversion__item {
+  text-transform: lowercase;
+}
+.solution-conversion__item span{
+  color: #F51963;
+  text-transform: uppercase;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
 }
