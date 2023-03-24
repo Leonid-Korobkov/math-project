@@ -85,7 +85,10 @@ form.addEventListener('submit', function (e) {
   const resultHTML = `
     <div class="notation-result__title">результат:</div>
     <div class="notation-result__result-num">
-        <span class="notation-result__result-num-from">${number}<sub class="notation-result__result-num-from-notation">${numberFrom}</sub></span>
+        <span class="notation-result__result-num-from">${groupDigits(
+          number,
+          numberFrom
+        )}<sub class="notation-result__result-num-from-notation">${numberFrom}</sub></span>
         <span> = </span>
         <span class="notation-result__result-num-to">${groupDigits(
           convertedNumber,
@@ -149,7 +152,10 @@ function convertFromDecToBase(number, baseTo) {
     i++
   }
   let result = number.toString(baseTo)
-  str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="color: #00bc64">${groupDigits(result.toString(), baseTo)}<sub>${baseTo}</span></sub></li>`
+  str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="color: #00bc64">${groupDigits(
+    result.toString(),
+    baseTo
+  )}<sub>${baseTo}</span></sub></li>`
   let strToHTML = `
     <div class="solution-conversion__text">
       <p class="solution-conversion__descr">Переводим целую часть ${number}<sub>10</sub> в ${baseTo}-ую систему последовательным делением на ${baseTo}:</p>
@@ -185,7 +191,8 @@ function groupDigits(number, base) {
     case '16':
       groupSize = 4
       break
-    default: return number
+    default:
+      return number
   }
   const digits = number.toString().split('').reverse()
   const groups = []
