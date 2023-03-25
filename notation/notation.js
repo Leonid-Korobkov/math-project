@@ -21,6 +21,8 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
+  number = number.replace(/\s/g, '')
+  formNumber.value = number
   return (
     /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) &&
     parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() === number.toString().toLowerCase()
@@ -85,15 +87,15 @@ form.addEventListener('submit', function (e) {
   const resultHTML = `
     <div class="notation-result__title">результат:</div>
     <div class="notation-result__result-num">
-        <span class="notation-result__result-num-from">${groupDigits(
-          number,
-          numberFrom
-        )}<sub class="notation-result__result-num-from-notation">${numberFrom}</sub></span>
+        <span class="notation-result__result-num-from">${addIndexForNumber(
+          groupDigits(number, numberFrom),
+          `<sub class="notation-result__result-num-from-notation">${numberFrom}</sub>`
+        )}</span>
         <span class="notation-result__result-sep">=</span>
-        <span class="notation-result__result-num-to">${groupDigits(
-          convertedNumber,
-          numberTo
-        )}<sub class="notation-result__result-num-to-notation">${numberTo}</sub></span>
+        <span class="notation-result__result-num-to">${addIndexForNumber(
+          groupDigits(convertedNumber, numberTo),
+          `<sub class="notation-result__result-num-to-notation">${numberTo}</sub>`
+        )}</span>
     </div>
   `
   resultBody.innerHTML = resultHTML
@@ -118,11 +120,14 @@ function convertFromBaseToDec(number, baseFrom) {
   <div class="solution-conversion__text">
     <div class="solution-conversion__title">Решение:</div>
     <div class="solution-conversion__text">
-      <p class="solution-conversion__descr">Переводим <span style="color: #202020;text-transform: uppercase;">${groupDigits(number, baseFrom)}<sub>${baseFrom}</sub></span> в десятичную систему счисления:</p>
-      <div class="solution-conversion__result-text">${groupDigits(number, baseFrom)}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${groupDigits(
-    result.toString(),
-    '10'
-  )}<sub>10</sub></span></div>
+      <p class="solution-conversion__descr">Переводим <span style="color: #202020;text-transform: uppercase;">${groupDigits(
+        number,
+        baseFrom
+      )}<sub>${baseFrom}</sub></span> в десятичную систему счисления:</p>
+      <div class="solution-conversion__result-text">${groupDigits(
+        number,
+        baseFrom
+      )}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${groupDigits(result.toString(), '10')}<sub>10</sub></span></div>
     </div>
   </div>
   `
@@ -211,4 +216,16 @@ function groupDigits(number, base) {
   }
 
   return groups.join(' ')
+}
+
+function addIndexForNumber(number, htmlSub = '') {
+  let index = 1
+  let strHTML = ''
+  for (let i = 0; i < number.length - 1; i++) {
+    if (number[i] !== ' ') {
+      strHTML += `<span>${number[i]}<span class="number-index">${i + 1}</span></span>`
+    } else strHTML += number[i]
+  }
+  strHTML += `<span>${number[number.length - 1]}<span class="number-index">${number.length}</span>${htmlSub}</span>`
+  return strHTML
 }
