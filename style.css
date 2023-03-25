@@ -173,12 +173,12 @@ h6 {
 }
 
 /* Главная страница */
-main {
+.page_photo {
   padding: 50px 0;
   background: url('img/bg_programs.jpg') no-repeat center center / cover;
 }
 @media (max-width: 700px) {
-  main {
+  .page_photo {
     background: none;
   }
 }
