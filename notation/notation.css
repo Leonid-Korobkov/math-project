@@ -78,7 +78,7 @@
   padding-bottom: 10px;
 }
 .notation-result__body {
-  opacity: 0;
+  /* opacity: 0; */
   transition: all 0.3s ease 0s;
 }
 .notation-result__title {
@@ -99,6 +99,7 @@
   justify-content: center;
   flex-wrap: wrap;
   word-break: break-word;
+  margin-bottom: 15px;
 }
 .notation-result__result-sep {
   margin: 0 7px;
@@ -106,26 +107,28 @@
 .notation-result__result-num-from > span,
 .notation-result__result-num-to > span {
   position: relative;
+  z-index: 2;
 }
 .notation-result__result-num-from span:last-child,
 .notation-result__result-num-to span:last-child {
-  display:inline-block;
+  display: inline-block;
 }
 .notation-result__result-num-from span:last-child .number-index,
-.notation-result__result-num-to span:last-child .number-index{
+.notation-result__result-num-to span:last-child .number-index {
   transform: none;
   left: 16%;
-  top: .5px;
+  top: 0px;
 }
 .notation-result__result-num-from span .number-index,
 .notation-result__result-num-to span .number-index {
+  z-index: -1;
   position: absolute;
   font-size: 8px;
   font-weight: normal;
   word-break: normal;
   color: #f0e7cf;
   left: 50%;
-  top: -2px;
+  top: -3px;
   transform: translateX(-50%);
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -133,7 +136,9 @@
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  pointer-events: none;
 }
+
 .notation-result__result-num-from-notation,
 .notation-result__result-num-to-notation {
   color: #f0e7cf;
@@ -145,6 +150,55 @@
 }
 .notation-result__result-num-to {
   color: #3de093;
+}
+.notation-result__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.notation-result__btn {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #202020;
+  background: #3de093;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+  max-width: 202px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.notation-result__btn::before {
+  transition: all 0.3s ease 0s;
+  opacity: 0;
+  content: 'Скопировано!';
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: -2px;
+  padding: 5px;
+  border-radius: 5px;
+  transform: translate(-50%, -100%);
+  background: #3de093;
+}
+.active.notation-result__btn::before {
+  opacity: 1;
+}
+.notation-result__btn svg {
+  width: 20px;
+}
+.notation-result__btn_white {
+  text-align: center;
+  text-transform: uppercase;
+  color: #202020;
+  background: #fff;
+  border-radius: 10px;
+}
+.notation-result__btn_white::before {
+  background: rgb(255, 255, 255);
 }
 
 .solution-conversion__body:not(:empty) {

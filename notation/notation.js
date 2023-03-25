@@ -1,7 +1,7 @@
-const form = document.forms.converterForm
-const formButton = form.button
 const errorMessage = document.querySelector('.converter-block__text_error ')
 const allowedChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const form = document.forms.converterForm
+const formButton = form.button
 const formNumber = form.number
 const formNumberFrom = form.fromNum
 
@@ -82,8 +82,22 @@ form.addEventListener('submit', function (e) {
   }
 
   const decimalNumber = convertFromBaseToDec(number, numberFrom).result
-  const convertedNumber = convertFromDecToBase(decimalNumber, numberTo).result
+  convertedNumber = convertFromDecToBase(decimalNumber, numberTo).result
 
+  const svgIconCopyHtml = `
+    <svg fill="" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" stroke="">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <path
+        d="M13.49 3 10.74.37A1.22 1.22 0 0 0 9.86 0h-4a1.25 1.25 0 0 0-1.22 1.25v11a1.25 1.25 0 0 0 1.25 1.25h6.72a1.25 1.25 0 0 0 1.25-1.25V3.88a1.22 1.22 0 0 0-.37-.88zm-.88 9.25H5.89v-11h2.72v2.63a1.25 1.25 0 0 0 1.25 1.25h2.75zm0-8.37H9.86V1.25l2.75 2.63z">
+      </path>
+      <path
+        d="M10.11 14.75H3.39v-11H4V2.5h-.61a1.25 1.25 0 0 0-1.25 1.25v11A1.25 1.25 0 0 0 3.39 16h6.72a1.25 1.25 0 0 0 1.25-1.25v-.63h-1.25z">
+      </path>
+    </g>
+    </svg>
+    `
   const resultHTML = `
     <div class="notation-result__title">результат:</div>
     <div class="notation-result__result-num">
@@ -97,10 +111,29 @@ form.addEventListener('submit', function (e) {
           `<sub class="notation-result__result-num-to-notation">${numberTo}</sub>`
         )}</span>
     </div>
+    <div class="notation-result__btns">
+      <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_input-num">${svgIconCopyHtml}число</button>
+      <button type="button" class="notation-result__btn notation-result__btn_output-num">${svgIconCopyHtml}ответ</button>
+    </div>
   `
   resultBody.innerHTML = resultHTML
   resultBody.style.opacity = 1
   solutionBody.style.opacity = 1
+
+  const resultBtns = document.querySelector('.notation-result__btns')
+  resultBtns.addEventListener('click', function (e) {
+    const target = e.target
+    if (target.classList.contains('notation-result__btn_input-num')) {
+      target.classList.add('active')
+      navigator.clipboard.writeText(number)
+    } else if (target.classList.contains('notation-result__btn_output-num')) {
+      target.classList.add('active')
+      navigator.clipboard.writeText(convertedNumber)
+    } else return
+    setTimeout(() => {
+      target.classList.remove('active')
+    }, 3000);
+  })
 })
 formNumber.addEventListener('input', function () {
   validateNumberInput(formNumber.value.replace(/^0+/, ''), formNumberFrom.value)
@@ -138,7 +171,6 @@ function convertFromBaseToDec(number, baseFrom) {
 }
 
 function convertFromDecToBase(number, baseTo) {
-  // let result = ''
   let str = ''
   let num = BigInt(number)
   let i = 1
@@ -152,7 +184,6 @@ function convertFromDecToBase(number, baseTo) {
         ? `<code><span>${remainder}</span></code>`
         : `<code>${remainder}</code>, <code>${remainder}</code> = <code><span>${remainderStr}</span></code>`
     }</li>`
-    // result = (num % BigInt(baseTo)).toString(baseTo) + result
     num = num / BigInt(baseTo)
     i++
   }
