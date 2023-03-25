@@ -80,6 +80,9 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
+sub, sup {
+	line-height: 0;
+}
 
 .wrapper {
   min-height: 100vh;

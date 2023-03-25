@@ -89,7 +89,7 @@ form.addEventListener('submit', function (e) {
           number,
           numberFrom
         )}<sub class="notation-result__result-num-from-notation">${numberFrom}</sub></span>
-        <span> = </span>
+        <span class="notation-result__result-sep">=</span>
         <span class="notation-result__result-num-to">${groupDigits(
           convertedNumber,
           numberTo
@@ -118,8 +118,8 @@ function convertFromBaseToDec(number, baseFrom) {
   <div class="solution-conversion__text">
     <div class="solution-conversion__title">Решение:</div>
     <div class="solution-conversion__text">
-      <p class="solution-conversion__descr">Переводим <span style="color: #202020;text-transform: uppercase;">${number}<sub>${baseFrom}</sub></span> в десятичную систему счисления:</p>
-      <div class="solution-conversion__result-text">${number}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${groupDigits(
+      <p class="solution-conversion__descr">Переводим <span style="color: #202020;text-transform: uppercase;">${groupDigits(number, baseFrom)}<sub>${baseFrom}</sub></span> в десятичную систему счисления:</p>
+      <div class="solution-conversion__result-text">${groupDigits(number, baseFrom)}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${groupDigits(
     result.toString(),
     '10'
   )}<sub>10</sub></span></div>
@@ -140,7 +140,7 @@ function convertFromDecToBase(number, baseTo) {
   while (num > 0n) {
     let remainder = num % BigInt(baseTo)
     let remainderStr = remainder.toString(baseTo)
-    str += `<li class="solution-conversion__item"><code><span>${i})</span>${num}/${baseTo} = ${
+    str += `<li class="solution-conversion__item"><span>${i})</span><code> ${num}/${baseTo} = ${
       num / BigInt(baseTo)
     }</code>, целое число <code><span>${num - remainder}</span></code>, остаток: ${
       remainder < 10
