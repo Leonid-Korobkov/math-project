@@ -112,8 +112,8 @@ form.addEventListener('submit', function (e) {
         )}</span>
     </div>
     <div class="notation-result__btns">
-      <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_input-num">${svgIconCopyHtml}число</button>
-      <button type="button" class="notation-result__btn notation-result__btn_output-num">${svgIconCopyHtml}ответ</button>
+      <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_input-num" title="Скопировать вводное число">${svgIconCopyHtml}число</button>
+      <button type="button" class="notation-result__btn notation-result__btn_output-num" title="Скопировать результат вычислений">${svgIconCopyHtml}ответ</button>
     </div>
   `
   resultBody.innerHTML = resultHTML
@@ -124,9 +124,11 @@ form.addEventListener('submit', function (e) {
   resultBtns.addEventListener('click', function (e) {
     const target = e.target
     if (target.classList.contains('notation-result__btn_input-num')) {
+      resultBtns.children[1].classList.remove('active')
       target.classList.add('active')
       navigator.clipboard.writeText(number)
     } else if (target.classList.contains('notation-result__btn_output-num')) {
+      resultBtns.children[0].classList.remove('active')
       target.classList.add('active')
       navigator.clipboard.writeText(convertedNumber)
     } else return

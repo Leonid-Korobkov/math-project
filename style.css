@@ -93,6 +93,21 @@ sub, sup {
   background: url(img/noise_black.jpg);
   position: relative;
 }
+.wrapper_img {
+  background: url('img/bg_programs.jpg') no-repeat center center / cover;
+}
+.page_photo {
+  padding: 50px 0;
+  background: url('img/bg_programs.jpg') no-repeat center center / cover;
+}
+.wrapper_img .page_photo {
+  background: none;
+}
+@media (max-width: 700px) {
+  .page_photo {
+    background: none;
+  }
+}
 .wrapper > main {
   flex: 1 1 auto;
   overflow: hidden;
@@ -176,15 +191,6 @@ sub, sup {
 }
 
 /* Главная страница */
-.page_photo {
-  padding: 50px 0;
-  background: url('img/bg_programs.jpg') no-repeat center center / cover;
-}
-@media (max-width: 700px) {
-  .page_photo {
-    background: none;
-  }
-}
 .main__body {
   display: grid;
   grid-template-columns: repeat(3, 267px);
