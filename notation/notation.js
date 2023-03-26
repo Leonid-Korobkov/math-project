@@ -21,8 +21,9 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
-  number = number.replace(/\s/g, '')
+  number = number.replace(' ', '')
   formNumber.value = number
+  number = number.replace(/^0+/, '')
   return (
     /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) &&
     parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() === number.toString().toLowerCase()
@@ -55,7 +56,7 @@ function validateNumberInput(number, base) {
 
 // Слушатели событий
 form.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter' && !isValidate(formNumber.value.replace(/^0+/, ''), formNumberFrom.value)) {
+  if (e.key === 'Enter' && !isValidate(formNumber.value, formNumberFrom.value)) {
     e.preventDefault()
   }
 })
@@ -138,10 +139,10 @@ form.addEventListener('submit', function (e) {
   })
 })
 formNumber.addEventListener('input', function () {
-  validateNumberInput(formNumber.value.replace(/^0+/, ''), formNumberFrom.value)
+  validateNumberInput(formNumber.value, formNumberFrom.value)
 })
 formNumberFrom.addEventListener('change', function () {
-  validateNumberInput(formNumber.value.replace(/^0+/, ''), formNumberFrom.value)
+  validateNumberInput(formNumber.value, formNumberFrom.value)
 })
 
 function convertFromBaseToDec(number, baseFrom) {

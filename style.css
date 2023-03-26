@@ -107,6 +107,9 @@ sub, sup {
   .page_photo {
     background: none;
   }
+  .wrapper_img {
+    background: none;
+  }
 }
 .wrapper > main {
   flex: 1 1 auto;
