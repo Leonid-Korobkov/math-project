@@ -42,15 +42,11 @@ function validateNumberInput(number, base) {
     )
     return false
   }
-  // Если предыдущая проверака на валидацию не прошла
-  if (isBase === false && prevNumberIsBase === false) return false
   // Действия в зависимости от того, прошла ли проверка
   if (!isBase) {
     addErrorMessage(base)
-    prevNumberIsBase = false
   } else {
     removeErrorMessage()
-    prevNumberIsBase = true
   }
   return isBase
 }
@@ -122,6 +118,8 @@ form.addEventListener('submit', function (e) {
   resultBody.style.opacity = 1
   solutionBody.style.opacity = 1
 
+  formNumber.blur()
+
   const resultBtns = document.querySelector('.notation-result__btns')
   resultBtns.addEventListener('click', function (e) {
     const target = e.target
@@ -136,7 +134,7 @@ form.addEventListener('submit', function (e) {
     } else return
     setTimeout(() => {
       target.classList.remove('active')
-    }, 3000);
+    }, 3000)
   })
 })
 formNumber.addEventListener('input', function () {
@@ -147,9 +145,11 @@ formNumberFrom.addEventListener('change', function () {
 })
 formNumber.addEventListener('focus', function () {
   formNumberWrapper.classList.add('input-wrapper_focus')
+  validateNumberInput(formNumber.value, formNumberFrom.value)
 })
 formNumber.addEventListener('blur', function () {
   formNumberWrapper.classList.remove('input-wrapper_focus')
+  errorMessage.style.display = 'none'
 })
 
 function convertFromBaseToDec(number, baseFrom) {
