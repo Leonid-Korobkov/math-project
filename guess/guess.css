@@ -2,7 +2,7 @@
   font-weight: bold;
   font-size: 32px;
   text-align: center;
-  color: #fff;
+  color: var(--white-color);
   margin-bottom: 15px;
 }
 .guess__descr span {
@@ -29,7 +29,7 @@
   font-weight: 700;
   font-size: 24px;
   text-transform: uppercase;
-  color: #3de093;
+  color: var(--accent-main-color);
 }
 .guess__label {
 }

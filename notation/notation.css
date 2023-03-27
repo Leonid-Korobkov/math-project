@@ -1,4 +1,5 @@
 /* Перевод с/с */
+
 .main-notation {
   /* background: url(img/noise_black.jpg) ; */
   /* min-height: calc(100vh - 81px - 67px); */
@@ -8,7 +9,7 @@
   font-weight: bold;
   font-size: 32px;
   text-align: center;
-  color: #fff;
+  color: var(--white-color);
   margin-bottom: 15px;
 }
 @media (min-width: 1024px) {
@@ -35,16 +36,16 @@
   bottom: 115%;
   right: 0;
   font-size: 14px;
-  color: #ff2c2c;
+  color: var(--error-red-color);
   text-transform: none;
   display: none;
   padding: 10px;
-  background: #f0e7cf;
+  background: var(--light-main-color);
   border-radius: 10px;
   word-wrap: break-word;
 }
 .converter-block__text_error span {
-  color: #00bc64;
+  color: var(--accent-main-darker-color);
 }
 .converter-block__img {
   width: 75px;
@@ -85,7 +86,7 @@
   font-weight: bold;
   font-size: 32px;
   text-transform: uppercase;
-  color: #fe3377;
+  color: var(--accent-second-color);
   margin-bottom: 12px;
 }
 .notation-result__result-num {
@@ -93,7 +94,7 @@
   font-size: 32px;
   line-height: 1.4;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--white-color) fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +127,7 @@
   font-size: 8px;
   font-weight: normal;
   word-break: normal;
-  color: #f0e7cf;
+  color: var(--light-main-color);
   left: 50%;
   top: -3px;
   transform: translateX(-50%);
@@ -141,7 +142,7 @@
 
 .notation-result__result-num-from-notation,
 .notation-result__result-num-to-notation {
-  color: #f0e7cf;
+  color: var(--light-main-color);
 }
 .notation-result__result-num-from sub,
 .notation-result__result-num-to sub {
@@ -149,7 +150,7 @@
   word-break: normal;
 }
 .notation-result__result-num-to {
-  color: #3de093;
+  color: var(--accent-main-color);
 }
 .notation-result__btns {
   display: flex;
@@ -161,8 +162,8 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  color: #202020;
-  background: #3de093;
+  color: var(--dark-main-color);
+  background: var(--accent-main-color);
   border-radius: 10px;
   font-size: 14px;
   padding: 10px 20px;
@@ -182,7 +183,7 @@
   padding: 5px;
   border-radius: 5px;
   transform: translate(-50%, -100%);
-  background: #3de093;
+  background: var(--accent-main-color);
 }
 .active.notation-result__btn::before {
   opacity: 1;
@@ -193,8 +194,8 @@
 .notation-result__btn_white {
   text-align: center;
   text-transform: uppercase;
-  color: #202020;
-  background: #fff;
+  color: var(--dark-main-color);
+  background: var(--white-color);
   border-radius: 10px;
 }
 .notation-result__btn_white::before {
@@ -206,7 +207,7 @@
   padding: 25px;
 }
 .solution-conversion__body {
-  background: #f0e7cf;
+  background: var(--light-main-color);
   border-radius: 30px;
   transition: all 0.3s ease 0s;
   /* opacity: 0; */
@@ -215,7 +216,7 @@
   font-weight: bold;
   font-size: 24px;
   text-transform: uppercase;
-  color: #f51963;
+  color: var(--accent-second-color);
   margin-bottom: 15px;
 }
 .solution-conversion__descr {
@@ -227,14 +228,14 @@
   /* font-weight: normal; */
 }
 .solution-conversion__text {
-  color: #202020;
+  color: var(--dark-main-color);
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
   word-wrap: break-word;
 }
 .solution-conversion__text span {
-  color: #00bc64;
+  color: var(--accent-main-darker-color);
 }
 .solution-conversion__text:not(:last-child) {
   margin-bottom: 25px;
@@ -256,7 +257,7 @@
   text-transform: lowercase;
 }
 .solution-conversion__item span {
-  color: #f51963;
+  color: var(--accent-second-color);
   text-transform: uppercase;
 }
 

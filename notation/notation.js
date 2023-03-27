@@ -4,20 +4,21 @@ const form = document.forms.converterForm
 const formButton = form.button
 const formNumber = form.number
 const formNumberFrom = form.fromNum
+const formNumberWrapper = document.querySelector('.converter-block__input-wrapper');
 
 function addErrorMessage(base, message = `Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`) {
   errorMessage.style.display = 'block'
   errorMessage.innerHTML = message
   formButton.style.opacity = '0.3'
   formButton.style.pointerEvents = 'none'
-  formNumber.classList.add('form-input__error')
+  formNumberWrapper.classList.add('input-wrapper_error')
 }
 function removeErrorMessage() {
   errorMessage.style.display = 'none'
   formButton.style.opacity = '1'
   formButton.style.pointerEvents = 'all'
   formButton.disabled = false
-  formNumber.classList.remove('form-input__error')
+  formNumberWrapper.classList.remove('input-wrapper_error')
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
@@ -143,6 +144,12 @@ formNumber.addEventListener('input', function () {
 })
 formNumberFrom.addEventListener('change', function () {
   validateNumberInput(formNumber.value, formNumberFrom.value)
+})
+formNumber.addEventListener('focus', function () {
+  formNumberWrapper.classList.add('input-wrapper_focus')
+})
+formNumber.addEventListener('blur', function () {
+  formNumberWrapper.classList.remove('input-wrapper_focus')
 })
 
 function convertFromBaseToDec(number, baseFrom) {
