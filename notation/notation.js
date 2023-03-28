@@ -4,7 +4,7 @@ const form = document.forms.converterForm
 const formButton = form.button
 const formNumber = form.number
 const formNumberFrom = form.fromNum
-const formNumberWrapper = document.querySelector('.converter-block__input-wrapper');
+const formNumberWrapper = document.querySelector('.converter-block__input-wrapper')
 
 function addErrorMessage(base, message = `Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`) {
   errorMessage.style.display = 'block'
@@ -113,6 +113,35 @@ form.addEventListener('submit', function (e) {
       <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_input-num" title="Скопировать вводное число">${svgIconCopyHtml}число</button>
       <button type="button" class="notation-result__btn notation-result__btn_output-num" title="Скопировать результат вычислений">${svgIconCopyHtml}ответ</button>
     </div>
+    <div class="notation-result__other-base result-other-base">
+      <div class="result-other-base__title">Результаты во всех часто используемых системах:</div>
+      <ul class="result-other-base__list">
+        <li class="result-other-base__item"><div class="result-other-base__text">2-ая: <span>${groupDigits(
+          convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, '2').result,
+          '2'
+        )}</span><sub class="result-other-base__item-base">2</sub></div>
+        <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
+        </li>
+        <li class="result-other-base__item"><div class="result-other-base__text">8-ая: <span>${groupDigits(
+          convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, '8').result,
+          '8'
+        )}</span><sub class="result-other-base__item-base">8</sub></div>
+        <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
+        </li>
+        <li class="result-other-base__item"><div class="result-other-base__text">10-ая: <span>${groupDigits(
+          convertFromBaseToDec(number, numberFrom).result,
+          '10'
+        )}</span><sub class="result-other-base__item-base">10</sub></div>
+        <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
+        </li>
+        <li class="result-other-base__item"><div class="result-other-base__text">16-ая: <span>${groupDigits(
+          convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, '16').result,
+          '16'
+        )}</span><sub class="result-other-base__item-base">16</sub></div>
+        <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
+        </li>
+      </ul>
+    </div>
   `
   resultBody.innerHTML = resultHTML
   resultBody.style.opacity = 1
@@ -120,6 +149,23 @@ form.addEventListener('submit', function (e) {
 
   formNumber.blur()
 
+  // Копирование остальных с/с
+  const resultItemsBtnsMini = Array.from(document.querySelectorAll('.result-other-base__item'))
+  resultItemsBtnsMini.forEach(function (item) {
+    item.querySelector('.notation-result__btn_white-mini').addEventListener('click', function (e) {
+      const itemTextContent = item.querySelector('.result-other-base__text span').textContent.replace(/\s/g, '')
+      navigator.clipboard.writeText(itemTextContent)
+      resultItemsBtnsMini.forEach(function (item) {
+        item.querySelector('.notation-result__btn_white-mini').classList.remove('active')
+      })
+      this.classList.add('active')
+      setTimeout(() => {
+        this.classList.remove('active')
+      }, 1000)
+    })
+  })
+
+  // Копирование числа и ответа
   const resultBtns = document.querySelector('.notation-result__btns')
   resultBtns.addEventListener('click', function (e) {
     const target = e.target
@@ -134,7 +180,7 @@ form.addEventListener('submit', function (e) {
     } else return
     setTimeout(() => {
       target.classList.remove('active')
-    }, 3000)
+    }, 1000)
   })
 })
 formNumber.addEventListener('input', function () {
@@ -151,6 +197,8 @@ formNumber.addEventListener('blur', function () {
   formNumberWrapper.classList.remove('input-wrapper_focus')
   errorMessage.style.display = 'none'
 })
+// Отмена фокуса на input при клике в другую область
+document.addEventListener('click', function () {})
 
 function convertFromBaseToDec(number, baseFrom) {
   let result = parseBigInt(number.toLowerCase(), baseFrom)
