@@ -65,8 +65,8 @@ form.addEventListener('submit', function (e) {
   const number = formNumber.value.replace(/^0+/, '')
   const numberFrom = formNumberFrom.value
   const numberTo = form.toNum.value
-
-  if (+numberFrom !== 10 && +numberTo === 10) {
+  if (+numberFrom === +numberTo) {solutionBody.innerHTML = ''}
+  else if (+numberFrom !== 10 && +numberTo === 10) {
     solutionBody.innerHTML = convertFromBaseToDec(number, numberFrom).strToHTML
   } else if (+numberFrom === 10 && +numberTo !== 10) {
     solutionBody.innerHTML = convertFromDecToBase(number, numberTo).strToHTML
