@@ -4,6 +4,7 @@ const form = document.forms.converterForm
 const formButton = form.button
 const formNumber = form.number
 const formNumberFrom = form.fromNum
+const formNumberTo = form.toNum
 const formNumberWrapper = document.querySelector('.converter-block__input-wrapper')
 
 function addErrorMessage(base, message = `Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`) {
@@ -193,12 +194,20 @@ formNumber.addEventListener('focus', function () {
   formNumberWrapper.classList.add('input-wrapper_focus')
   validateNumberInput(formNumber.value, formNumberFrom.value)
 })
+// Отмена фокуса на input при клике в другую область
+document.addEventListener('click', function (e) {
+  const target = e.target;
+  if (target.closest('.converter-block__img')) {
+    let temp = formNumberFrom.value
+    formNumberFrom.value = formNumberTo.value
+    formNumberTo.value = temp
+  }
+})
 formNumber.addEventListener('blur', function () {
   formNumberWrapper.classList.remove('input-wrapper_focus')
   errorMessage.style.display = 'none'
 })
-// Отмена фокуса на input при клике в другую область
-document.addEventListener('click', function () {})
+
 
 function convertFromBaseToDec(number, baseFrom) {
   let result = parseBigInt(number.toLowerCase(), baseFrom)
