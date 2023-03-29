@@ -201,6 +201,7 @@ document.addEventListener('click', function (e) {
     let temp = formNumberFrom.value
     formNumberFrom.value = formNumberTo.value
     formNumberTo.value = temp
+    validateNumberInput(formNumber.value, formNumberFrom.value)
   }
 })
 formNumber.addEventListener('blur', function () {
