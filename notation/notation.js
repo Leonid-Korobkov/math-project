@@ -318,13 +318,14 @@ function groupDigits(number, base) {
 }
 
 function addIndexForNumber(number, htmlSub = '') {
-  let index = 1
+  let index = number.length - 1
   let strHTML = ''
   for (let i = 0; i < number.length - 1; i++) {
     if (number[i] !== ' ') {
-      strHTML += `<span>${number[i]}<span class="number-index">${i + 1}</span></span>`
+      strHTML += `<span>${number[i]}<span class="number-index">${index}</span></span>`
     } else strHTML += number[i]
+    index--
   }
-  strHTML += `<span>${number[number.length - 1]}<span class="number-index">${number.length}</span>${htmlSub}</span>`
+  strHTML += `<span>${number[number.length - 1]}<span class="number-index">${index}</span>${htmlSub}</span>`
   return strHTML
 }
