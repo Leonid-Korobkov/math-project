@@ -1,16 +1,18 @@
 /* Перевод с/с */
-
 .main-notation {
   /* background: url(img/noise_black.jpg) ; */
   /* min-height: calc(100vh - 81px - 67px); */
   padding-bottom: 40px;
 }
-.main-notation__title {
+.main-title {
   font-weight: bold;
   font-size: 32px;
   text-align: center;
   color: var(--white-color);
   margin-bottom: 15px;
+}
+.main-title_mini {
+  font-size: 28px;
 }
 @media (max-width: 580px){
   .main-notation__title {
@@ -339,4 +341,54 @@
     display: block;
     opacity: 1;
   }
+}
+
+.about-notation__body {
+  margin-top: 45px;
+}
+.about-notation__main-title {
+  color: var(--light-main-color);
+}
+.about-notation__list {
+  display: grid;
+  gap: 40px;
+}
+.about-notation__item {
+  display: grid;
+  /* gap: 15px; */
+  line-height: 120%;
+}
+.about-notation__list_num {
+  display: grid;
+  gap: 10px;
+}
+.about-notation__item_num {
+  list-style-type: decimal;
+  margin-left: 25px;
+}
+.about-notation__item code {
+  font-family: 'Montserrat', sans-serif;
+  background: #343941;
+  padding: 1px 5px;
+  border-radius: 6px;
+  white-space: nowrap
+}
+.about-notation__item:last-child {
+  margin-bottom: 50px;
+}
+.about-notation__title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 7px;
+}
+.about-notation__text {
+  display: grid;
+  gap: 10px;
+}
+.about-notation__text span {
+  font-weight: bold;
+}
+.about-notation__descr {
+}
+.about-notation__paragraph {
 }

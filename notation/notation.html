@@ -30,7 +30,7 @@
             <div class="main-breadcrumbs">
               <a href="../index.html"><img src="../img/arrow-left.svg" alt=""><span>На главную</span></a>
             </div>
-            <h1 class="main-notation__title">Перевод чисел в различные системы счисления с решением</h1>
+            <h1 class="main-notation__title main-title">Перевод чисел в различные системы счисления с решением</h1>
             <p class="main-notation__descr">Калькулятор позволяет переводить целые числа из одной системы
               счисления в другую. Основание системы счисления не может быть меньше 2 и больше 36 (10 цифр и 26 латинских
               букв). Длина чисел не имеет предела. Чтобы перевести число из одной системы в другую, введите исходное
@@ -154,28 +154,93 @@
       <section class="about-notation">
         <div class="about-notation__container">
           <div class="about-notation__body">
+            <h3 class="about-notation__main-title main-title main-title_mini">Системы счисления</h3>
             <ul class="about-notation__list">
               <li class="about-notation__item">
                 <h3 class="about-notation__title">Кратко об основных системах счисления</h3>
                 <div class="about-notation__text">
-                  <h4 class="about-notation__descr">Системы счисления - это способы представления чисел с помощью
-                    цифр. Основными системами счисления являются:</h4>
-                  <p class="about-notation__paragraph"><span>Десятичная система счисления</span>: в этой системе
-                    используются цифры
-                    от 0 до 9. Каждая цифра обозначает определенное количество единиц, которые
-                    соответствуют ее разряду. Используется в повседневной жизни и является самой распространенной. Все
-                    числа, которые нас окружают представлены в этой системе.</p>
-                  <p class="about-notation__paragraph"><span>Двоичная система счисления</span>: в этой системе
-                    используются только
-                    две цифры - 0 и 1. Используется в вычислительной технике.</p>
-                  <p class="about-notation__paragraph"><span>Восьмеричная система счисления</span>: в этой системе
-                    используются
-                    восемь цифр - от 0 до 7. Каждая цифра обозначает определенное количество единиц, которые
-                    соответствуют ее разряду. Также иногда применяется в цифровой технике.</p>
-                  <p class="about-notation__paragraph"><span>Шестнадцатеричная система счисления</span>: в этой системе
-                    используются
-                    шестнадцать цифр - от 0 до 9 и от A до F. Наиболее распространена в современных компьютерах. При
-                    помощи неё, например, указывают цвет. #FF0000 - красный цвет.</p>
+                  <h4 class="about-notation__descr"><span>Системы счисления</span> - это способы представления чисел с
+                    помощью цифр.
+                  </h4>
+                  <ul class="about-notation__list_num">
+                    <li class="about-notation__item_num">
+                      <span>Десятичная система счисления</span>: в этой системе
+                      используются цифры
+                      <code>от 0 до 9</code>. Используется в повседневной жизни и является самой распространенной. Все
+                      числа, которые нас окружают представлены в этой системе.
+                    </li>
+                    <li class="about-notation__item_num">
+                      <span>Двоичная система счисления</span>: в этой системе
+                      используются только
+                      две цифры - <code>0 и 1</code>. Используется в вычислительной технике.
+                    </li>
+                    <li class="about-notation__item_num">
+                      <span>Восьмеричная система счисления</span>: в этой системе
+                      используются
+                      восемь цифр - <code>от 0 до 7</code>. Каждая цифра обозначает определенное количество единиц,
+                      которые
+                      соответствуют ее разряду. Также иногда применяется в цифровой технике.
+                    </li>
+                    <li class="about-notation__item_num">
+                      <span>Шестнадцатеричная система счисления</span>: в этой системе
+                      используются
+                      шестнадцать цифр - <code>от 0 до 9</code> и <code>от A до F</code>. Наиболее распространена в
+                      современных компьютерах. При
+                      помощи неё, например, указывают цвет. <code>#FF0000</code> - красный цвет.
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-notation__item">
+                <h3 class="about-notation__title">Перевод в десятичную систему счисления</h3>
+                <div class="about-notation__text">
+                  <p class="about-notation__paragraph">
+                    Имеется число a1a2a3 в системе счисления с основанием b. Для перевода в 10-ю систему необходимо
+                    каждый разряд числа умножить на bn, где n — номер разряда. Таким образом,
+                    <code>(a<sub>1</sub>a<sub>2</sub>a<sub>3</sub>)<sub>b</sub></code> = <code>(a<sub>1</sub>*b<sup>2</sup> + a<sub>2</sub>*b<sup>1</sup>
+                    + a<sub>3</sub>*b<sup>0</sup>)<sub>10</sub></code>.
+                  </p>
+                  <p class="about-notation__paragraph"><span>Пример:</span> <code>101<sub>2</sub></code> =
+                    <code>1*2<sup>2</sup> + 0*2<sup>1</sup> + 1*2<sup>0</sup></code> = <code>4+0+1</code> =
+                    <code>5<sub>10</sub></code>
+                  </p>
+                </div>
+              </li>
+              <li class="about-notation__item">
+                <h3 class="about-notation__title">Перевод из десятичной системы счисления в другие</h3>
+                <div class="about-notation__text">
+                  <ul class="about-notation__list_num">
+                    <h4 class="about-notation__descr"><span>Целая часть:</span></h4>
+                    <li class="about-notation__item_num">
+                      Последовательно делим целую часть десятичного числа на основание системы, в которую переводим,
+                      пока
+                      десятичное число не станет равно нулю.
+                    </li>
+                    <li class="about-notation__item_num">
+                      Полученные при делении остатки являются цифрами искомого числа. Число в новой системе записывают,
+                      начиная с последнего остатка.
+                    </li>
+                  </ul>
+                  <ul class="about-notation__list_num">
+                    <h4 class="about-notation__descr"><span>Дробная часть:</span></h4>
+                    <li class="about-notation__item_num">
+                      Дробную часть десятичного числа умножаем на основание системы, в которую требуется перевести.
+                      Отделяем целую часть. Продолжаем умножать дробную часть на основание новой системы, пока она не
+                      станет равной 0.
+                    </li>
+                    <li class="about-notation__item_num">
+                      Число в новой системе составляют целые части результатов умножения в порядке, соответствующем их
+                      получению.
+                    </li>
+                  </ul>
+                  <p class="about-notation__paragraph">
+                    <span>Пример</span>: переведем <code>15<sub>10</sub></code> в восьмеричную:
+                  <div><code>15\8 = 1, остаток 7</code></div>
+                  <div><code>1\8 = 0, остаток 1</code></div>
+                  <div>Записав все остатки снизу вверх, получаем итоговое число <code>17</code>. Следовательно,
+                    <code>15<sub>10</sub></code> = <code>17<sub>8</sub></code>.
+                  </div>
+                  </p>
                 </div>
               </li>
             </ul>
@@ -187,7 +252,7 @@
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__body">
-          <p class="footer__p">© Леонид Коробков</p>
+          <p class="footer__p">© Коробков Л.А</p>
           <p class="footer__p">ИП-21-3</p>
           <p class="footer__p">2023г.</p>
         </div>
