@@ -1,7 +1,5 @@
 /* Перевод с/с */
 .main-notation {
-  /* background: url(img/noise_black.jpg) ; */
-  /* min-height: calc(100vh - 81px - 67px); */
   padding-bottom: 40px;
 }
 .main-title {
@@ -10,11 +8,12 @@
   text-align: center;
   color: var(--white-color);
   margin-bottom: 15px;
+  margin-top: 20px;
 }
 .main-title_mini {
   font-size: 28px;
 }
-@media (max-width: 580px){
+@media (max-width: 580px) {
   .main-notation__title {
     font-size: 24px;
   }
@@ -88,7 +87,6 @@
   padding-bottom: 10px;
 }
 .notation-result__body {
-  /* opacity: 0; */
   transition: all 0.3s ease 0s;
 }
 .notation-result__title {
@@ -261,12 +259,6 @@
   font-weight: bold;
 }
 
-/* @media (max-width: 580px){
-  .result-other-base {
-    font-size: 16px;
-  }
-} */
-
 .solution-conversion__body:not(:empty) {
   margin-bottom: 50px;
   padding: 25px;
@@ -275,7 +267,6 @@
   background: var(--light-main-color);
   border-radius: 30px;
   transition: all 0.3s ease 0s;
-  /* opacity: 0; */
 }
 .solution-conversion__title {
   font-weight: bold;
@@ -290,7 +281,6 @@
   text-transform: none;
   word-wrap: break-word;
   font-size: 20px;
-  /* font-weight: normal; */
 }
 .solution-conversion__text {
   color: var(--dark-main-color);
@@ -355,7 +345,6 @@
 }
 .about-notation__item {
   display: grid;
-  /* gap: 15px; */
   line-height: 120%;
 }
 .about-notation__list_num {
@@ -371,7 +360,7 @@
   background: #343941;
   padding: 1px 5px;
   border-radius: 6px;
-  white-space: nowrap
+  white-space: nowrap;
 }
 .about-notation__item:last-child {
   margin-bottom: 50px;
@@ -387,8 +376,4 @@
 }
 .about-notation__text span {
   font-weight: bold;
-}
-.about-notation__descr {
-}
-.about-notation__paragraph {
 }

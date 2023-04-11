@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная</title>
+  <title>Перевод с/с</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  
-  <div class="wrapper wrapper__main">
+
+  <div class="wrapper wrapper__notation">
 
     <header class="header">
       <div class="header__container">
@@ -23,51 +23,227 @@
       </div>
     </header>
 
-    <main class="page page_photo">
-
-      <section class="main">
-        <div class="main__container">
-          <div class="main__body">
-            <a href="notation/notation.html" class="main__card-basic card-basic card-basic_1">
-              <div class="card-basic__img">
-                <img src="img/test-card.jpg" alt="">
+    <main class="page">
+      <section class="main-notation">
+        <div class="main-notation__container">
+          <div class="main-notation__body">
+            <h1 class="main-notation__title main-title">Перевод чисел в различные системы счисления с решением</h1>
+            <p class="main-notation__descr">Калькулятор позволяет переводить целые числа из одной системы
+              счисления в другую. Основание системы счисления не может быть меньше 2 и больше 36 (10 цифр и 26 латинских
+              букв). Длина чисел не имеет предела. Чтобы перевести число из одной системы в другую, введите исходное
+              число в первое поле, основание
+              исходной системы счисления во второе и основание системы счисления, в которую нужно перевести число, в
+              третье поле, после чего нажмите кнопку "Перевести". Вы увидите результат перевода, а также значение числа
+              в других часто используемых с/c. Чтобы быстро поменять местами с/с нажмите на кнопку конвертации, которая
+              находится между вторым и третим полемы</p>
+            <form method="POST" name="converterForm" action="#"
+              class="main-notation__converter-block converter-block form">
+              <label class="converter-block__label converter-block__label_num form-label">
+                <span>Число:</span>
+                <div class="converter-block__input-wrapper input-wrapper"><input type="text" name="number"
+                    class="converter-block__input converter-block__input_num form-input"></div>
+                <div class="converter-block__text_error"></div>
+              </label>
+              <div class="converter-block__convert">
+                <label class="converter-block__label">
+                  <select name="fromNum" id="converterBlockFrom"
+                    class="converter-block__input converter-block__input_select converter-block__input_select-from form-input">
+                    <option value="2" selected class="converter-block__input_option">2 - Двоичная</option>
+                    <option value="3" class="converter-block__input_option">3</option>
+                    <option value="4" class="converter-block__input_option">4</option>
+                    <option value="5" class="converter-block__input_option">5</option>
+                    <option value="6" class="converter-block__input_option">6</option>
+                    <option value="7" class="converter-block__input_option">7</option>
+                    <option value="8" class="converter-block__input_option">8 - Восьмеричная</option>
+                    <option value="9" class="converter-block__input_option">9</option>
+                    <option value="10" class="converter-block__input_option">10 - Десятичная</option>
+                    <option value="11" class="converter-block__input_option">11</option>
+                    <option value="12" class="converter-block__input_option">12</option>
+                    <option value="13" class="converter-block__input_option">13</option>
+                    <option value="14" class="converter-block__input_option">14</option>
+                    <option value="15" class="converter-block__input_option">15</option>
+                    <option value="16" class="converter-block__input_option">16 - Шестнадцатиричная</option>
+                    <option value="17" class="converter-block__input_option">17</option>
+                    <option value="18" class="converter-block__input_option">18</option>
+                    <option value="19" class="converter-block__input_option">19</option>
+                    <option value="20" class="converter-block__input_option">20</option>
+                    <option value="21" class="converter-block__input_option">21</option>
+                    <option value="22" class="converter-block__input_option">22</option>
+                    <option value="23" class="converter-block__input_option">23</option>
+                    <option value="24" class="converter-block__input_option">24</option>
+                    <option value="25" class="converter-block__input_option">25</option>
+                    <option value="26" class="converter-block__input_option">26</option>
+                    <option value="27" class="converter-block__input_option">27</option>
+                    <option value="28" class="converter-block__input_option">28</option>
+                    <option value="29" class="converter-block__input_option">29</option>
+                    <option value="30" class="converter-block__input_option">30</option>
+                    <option value="31" class="converter-block__input_option">31</option>
+                    <option value="32" class="converter-block__input_option">32</option>
+                    <option value="33" class="converter-block__input_option">33</option>
+                    <option value="34" class="converter-block__input_option">34</option>
+                    <option value="35" class="converter-block__input_option">35</option>
+                    <option value="36" class="converter-block__input_option">36</option>
+                  </select>
+                </label>
+                <div class="converter-block__img">
+                  <img src="img/arrows.svg" alt="" title="Поменять местами">
+                </div>
+                <label class="converter-block__label">
+                  <select name="toNum" id="converterBlockTo"
+                    class="converter-block__input converter-block__input_select converter-block__input_select-to form-input">
+                    <option value="2" class="converter-block__input_option">2 - Двоичная</option>
+                    <option value="3" class="converter-block__input_option">3</option>
+                    <option value="4" class="converter-block__input_option">4</option>
+                    <option value="5" class="converter-block__input_option">5</option>
+                    <option value="6" class="converter-block__input_option">6</option>
+                    <option value="7" class="converter-block__input_option">7</option>
+                    <option value="8" class="converter-block__input_option">8 - Восьмиричная</option>
+                    <option value="9" class="converter-block__input_option">9</option>
+                    <option value="10" class="converter-block__input_option">10 - Десятичная</option>
+                    <option value="11" class="converter-block__input_option">11</option>
+                    <option value="12" class="converter-block__input_option">12</option>
+                    <option value="13" class="converter-block__input_option">13</option>
+                    <option value="14" class="converter-block__input_option">14</option>
+                    <option value="15" class="converter-block__input_option">15</option>
+                    <option value="16" selected class="converter-block__input_option">16 - Шестнадцатиричная</option>
+                    <option value="17" class="converter-block__input_option">17</option>
+                    <option value="18" class="converter-block__input_option">18</option>
+                    <option value="19" class="converter-block__input_option">19</option>
+                    <option value="20" class="converter-block__input_option">20</option>
+                    <option value="21" class="converter-block__input_option">21</option>
+                    <option value="22" class="converter-block__input_option">22</option>
+                    <option value="23" class="converter-block__input_option">23</option>
+                    <option value="24" class="converter-block__input_option">24</option>
+                    <option value="25" class="converter-block__input_option">25</option>
+                    <option value="26" class="converter-block__input_option">26</option>
+                    <option value="27" class="converter-block__input_option">27</option>
+                    <option value="28" class="converter-block__input_option">28</option>
+                    <option value="29" class="converter-block__input_option">29</option>
+                    <option value="30" class="converter-block__input_option">30</option>
+                    <option value="31" class="converter-block__input_option">31</option>
+                    <option value="32" class="converter-block__input_option">32</option>
+                    <option value="33" class="converter-block__input_option">33</option>
+                    <option value="34" class="converter-block__input_option">34</option>
+                    <option value="35" class="converter-block__input_option">35</option>
+                    <option value="36" class="converter-block__input_option">36</option>
+                  </select>
+                </label>
               </div>
-              <h2 class="card-basic__text">Перевод систем счисления</h2>
-            </a>
-            <div class="main__card-basic card-basic card-text-transform">
-              <h2 class="card-text-transform__text">Переводи с/с|</h2>
-              <div class="card-text-transform__img">
-                <img src="img/math 2.png" alt="">
-              </div>
-            </div>
-            <a href="guess/guess.html" class="main__card-basic card-basic card-basic_2">
-              <div class="card-basic__img">
-                <img src="img/test-card.jpg" alt="">
-              </div>
-              <h2 class="card-basic__text">Угадай число</h2>
-            </a>
-            <a href="#" class="main__card-basic card-basic card-basic_3">
-              <div class="card-basic__img">
-                <img src="img/test-card.jpg" alt="">
-              </div>
-              <h2 class="card-basic__text">Возведение числа</h2>
-            </a>
-            <a href="#" class="main__card-basic card-basic card-basic_4">
-              <div class="card-basic__img">
-                <img src="img/test-card.jpg" alt="">
-              </div>
-              <h2 class="card-basic__text">Возведение в степень</h2>
-            </a>
-            <a href="#" class="main__card-basic card-basic card-basic_5">
-              <div class="card-basic__img">
-                <img src="img/test-card.jpg" alt="">
-              </div>
-              <h2 class="card-basic__text">Возведение числа в степень</h2>
-            </a>
+              <button disabled name="button" type="submit"
+                class="converter-block__button form-button">перевести</button>
+            </form>
           </div>
         </div>
       </section>
-      
+
+      <section class="notation-result">
+        <div class="notation-result__container">
+          <div class="notation-result__body"></div>
+        </div>
+      </section>
+
+      <section class="solution-conversion">
+        <div class="solution-conversion__container">
+          <div class="solution-conversion__body"></div>
+        </div>
+      </section>
+
+      <section class="about-notation">
+        <div class="about-notation__container">
+          <div class="about-notation__body">
+            <h3 class="about-notation__main-title main-title main-title_mini">Системы счисления</h3>
+            <ul class="about-notation__list">
+              <li class="about-notation__item">
+                <h3 class="about-notation__title">Кратко об основных системах счисления</h3>
+                <div class="about-notation__text">
+                  <h4 class="about-notation__descr"><span>Системы счисления</span> - это способы представления чисел с
+                    помощью цифр.
+                  </h4>
+                  <ul class="about-notation__list_num">
+                    <li class="about-notation__item_num">
+                      <span>Десятичная система счисления</span>: в этой системе
+                      используются цифры
+                      <code>от 0 до 9</code>. Используется в повседневной жизни и является самой распространенной. Все
+                      числа, которые нас окружают представлены в этой системе.
+                    </li>
+                    <li class="about-notation__item_num">
+                      <span>Двоичная система счисления</span>: в этой системе
+                      используются только
+                      две цифры - <code>0 и 1</code>. Используется в вычислительной технике.
+                    </li>
+                    <li class="about-notation__item_num">
+                      <span>Восьмеричная система счисления</span>: в этой системе
+                      используются
+                      восемь цифр - <code>от 0 до 7</code>. Каждая цифра обозначает определенное количество единиц,
+                      которые
+                      соответствуют ее разряду. Также иногда применяется в цифровой технике.
+                    </li>
+                    <li class="about-notation__item_num">
+                      <span>Шестнадцатеричная система счисления</span>: в этой системе
+                      используются
+                      шестнадцать цифр - <code>от 0 до 9</code> и <code>от A до F</code>. Наиболее распространена в
+                      современных компьютерах. При
+                      помощи неё, например, указывают цвет. <code>#FF0000</code> - красный цвет.
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-notation__item">
+                <h3 class="about-notation__title">Перевод в десятичную систему счисления</h3>
+                <div class="about-notation__text">
+                  <p class="about-notation__paragraph">
+                    Имеется число a1a2a3 в системе счисления с основанием b. Для перевода в 10-ю систему необходимо
+                    каждый разряд числа умножить на bn, где n — номер разряда. Таким образом,
+                    <code>(a<sub>1</sub>a<sub>2</sub>a<sub>3</sub>)<sub>b</sub></code> = <code>(a<sub>1</sub>*b<sup>2</sup> + a<sub>2</sub>*b<sup>1</sup>
+                    + a<sub>3</sub>*b<sup>0</sup>)<sub>10</sub></code>.
+                  </p>
+                  <p class="about-notation__paragraph"><span>Пример:</span> <code>101<sub>2</sub></code> =
+                    <code>1*2<sup>2</sup> + 0*2<sup>1</sup> + 1*2<sup>0</sup></code> = <code>4+0+1</code> =
+                    <code>5<sub>10</sub></code>
+                  </p>
+                </div>
+              </li>
+              <li class="about-notation__item">
+                <h3 class="about-notation__title">Перевод из десятичной системы счисления в другие</h3>
+                <div class="about-notation__text">
+                  <ul class="about-notation__list_num">
+                    <h4 class="about-notation__descr"><span>Целая часть:</span></h4>
+                    <li class="about-notation__item_num">
+                      Последовательно делим целую часть десятичного числа на основание системы, в которую переводим,
+                      пока
+                      десятичное число не станет равно нулю.
+                    </li>
+                    <li class="about-notation__item_num">
+                      Полученные при делении остатки являются цифрами искомого числа. Число в новой системе записывают,
+                      начиная с последнего остатка.
+                    </li>
+                  </ul>
+                  <ul class="about-notation__list_num">
+                    <h4 class="about-notation__descr"><span>Дробная часть:</span></h4>
+                    <li class="about-notation__item_num">
+                      Дробную часть десятичного числа умножаем на основание системы, в которую требуется перевести.
+                      Отделяем целую часть. Продолжаем умножать дробную часть на основание новой системы, пока она не
+                      станет равной 0.
+                    </li>
+                    <li class="about-notation__item_num">
+                      Число в новой системе составляют целые части результатов умножения в порядке, соответствующем их
+                      получению.
+                    </li>
+                  </ul>
+                  <p class="about-notation__paragraph">
+                    <span>Пример</span>: переведем <code>15<sub>10</sub></code> в восьмеричную:
+                  <div><code>15\8 = 1, остаток 7</code></div>
+                  <div><code>1\8 = 0, остаток 1</code></div>
+                  <div>Записав все остатки снизу вверх, получаем итоговое число <code>17</code>. Следовательно,
+                    <code>15<sub>10</sub></code> = <code>17<sub>8</sub></code>.
+                  </div>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -80,6 +256,7 @@
       </div>
     </footer>
   </div>
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>

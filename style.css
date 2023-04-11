@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('notation/notation.css');
-@import url('guess/guess.css');
+@import url('notation.css');
 
 html {
   --white-color: #fff;
@@ -105,7 +104,6 @@ sup {
 }
 .page_photo {
   padding: 50px 0;
-  background: url('img/bg_programs.jpg') no-repeat center center / cover;
 }
 .wrapper_main .page_photo {
   background: none;
