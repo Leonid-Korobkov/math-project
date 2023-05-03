@@ -23,7 +23,7 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
-  number = number.replace(' ', '')
+  number = number.replace(/\s/g,'')
   formNumber.value = number
   number = number.replace(/^0+/, '')
   return (
