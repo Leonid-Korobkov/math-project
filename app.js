@@ -60,6 +60,34 @@ form.addEventListener('keydown', function (e) {
 })
 form.addEventListener('submit', function (e) {
   e.preventDefault()
+  renderResultAndSolution()
+})
+formNumber.addEventListener('input', function () {
+  validateNumberInput(formNumber.value, formNumberFrom.value)
+})
+formNumberFrom.addEventListener('change', function () {
+  validateNumberInput(formNumber.value, formNumberFrom.value)
+})
+formNumber.addEventListener('focus', function () {
+  formNumberWrapper.classList.add('input-wrapper_focus')
+  validateNumberInput(formNumber.value, formNumberFrom.value)
+})
+// Отмена фокуса на input при клике в другую область
+document.addEventListener('click', function (e) {
+  const target = e.target;
+  if (target.closest('.converter-block__img')) {
+    let temp = formNumberFrom.value
+    formNumberFrom.value = formNumberTo.value
+    formNumberTo.value = temp
+    validateNumberInput(formNumber.value, formNumberFrom.value)
+  }
+})
+formNumber.addEventListener('blur', function () {
+  formNumberWrapper.classList.remove('input-wrapper_focus')
+  errorMessage.style.display = 'none'
+})
+
+function renderResultAndSolution() {
   const resultBody = document.querySelector('.notation-result__body')
   const solutionBody = document.querySelector('.solution-conversion__body')
 
@@ -183,32 +211,7 @@ form.addEventListener('submit', function (e) {
       target.classList.remove('active')
     }, 1000)
   })
-})
-formNumber.addEventListener('input', function () {
-  validateNumberInput(formNumber.value, formNumberFrom.value)
-})
-formNumberFrom.addEventListener('change', function () {
-  validateNumberInput(formNumber.value, formNumberFrom.value)
-})
-formNumber.addEventListener('focus', function () {
-  formNumberWrapper.classList.add('input-wrapper_focus')
-  validateNumberInput(formNumber.value, formNumberFrom.value)
-})
-// Отмена фокуса на input при клике в другую область
-document.addEventListener('click', function (e) {
-  const target = e.target;
-  if (target.closest('.converter-block__img')) {
-    let temp = formNumberFrom.value
-    formNumberFrom.value = formNumberTo.value
-    formNumberTo.value = temp
-    validateNumberInput(formNumber.value, formNumberFrom.value)
-  }
-})
-formNumber.addEventListener('blur', function () {
-  formNumberWrapper.classList.remove('input-wrapper_focus')
-  errorMessage.style.display = 'none'
-})
-
+}
 
 function convertFromBaseToDec(number, baseFrom) {
   let result = parseBigInt(number.toLowerCase(), baseFrom)
@@ -323,8 +326,8 @@ function addIndexForNumber(number, htmlSub = '') {
   for (let i = 0; i < number.length - 1; i++) {
     if (number[i] !== ' ') {
       strHTML += `<span>${number[i]}<span class="number-index">${index}</span></span>`
+      index--
     } else strHTML += number[i]
-    index--
   }
   strHTML += `<span>${number[number.length - 1]}<span class="number-index">${index}</span>${htmlSub}</span>`
   return strHTML
