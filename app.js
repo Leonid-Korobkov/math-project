@@ -321,7 +321,7 @@ function groupDigits(number, base) {
 }
 
 function addIndexForNumber(number, htmlSub = '') {
-  let index = number.length - 1
+  let index = number.replace(/\s/g,'').length - 1
   let strHTML = ''
   for (let i = 0; i < number.length - 1; i++) {
     if (number[i] !== ' ') {
