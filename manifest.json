@@ -2,7 +2,7 @@
   "name": "Notation",
   "short_name": "notation",
   "description": "Калькулятор позволяет переводить целые числа из одной системы счисления в другую с подробным решением.",
-  "start_url": "/https://leonid-korobkov.github.io/math-project/",
+  "start_url": "https://leonid-korobkov.github.io/math-project/",
   "lang": "ru",
   "display": "standalone",
   "theme_color": "#202020",
