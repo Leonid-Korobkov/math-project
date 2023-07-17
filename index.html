@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -17,6 +17,14 @@
   <title>Перевод систем счисления</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Notation">
+  <meta name="apple-mobile-web-app-title" content="Notation">
+  <meta name="msapplication-starturl" content="https://leonid-korobkov.github.io/math-project/">
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="img/favicon.svg" type="image/svg+xml">
@@ -313,6 +321,25 @@
     </footer>
   </div>
   <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator)
+    {
+      window.addEventListener('load', function ()
+      {
+        navigator.serviceWorker.register('/sw.js').then(
+          function (registration)
+          {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          },
+          function (err)
+          {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+  </script>
 </body>
 
 </html>

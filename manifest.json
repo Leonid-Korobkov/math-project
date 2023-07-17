@@ -1,0 +1,77 @@
+{
+  "name": "Notation",
+  "short_name": "notation",
+  "description": "Калькулятор позволяет переводить целые числа из одной системы счисления в другую с подробным решением.",
+  "start_url": "/https://leonid-korobkov.github.io/math-project/",
+  "lang": "ru",
+  "display": "standalone",
+  "theme_color": "#202020",
+  "background_color": "#202020",
+  "icons": [
+    {
+      "src": "img/favicomatic/apple-touch-icon-57x57.png",
+      "sizes": "57x57",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-114x114.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-60x60.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-120x120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-76x76.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/favicon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicomatic/favicon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
