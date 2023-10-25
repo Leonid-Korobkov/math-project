@@ -166,6 +166,11 @@ sup {
   padding: 12px 0;
 }
 
+.footer__link {
+  color: var(--accent-main-color);
+  text-decoration: underline !important;
+}
+
 .main-breadcrumbs {
   margin-bottom: 25px;
   margin-top: 20px;
