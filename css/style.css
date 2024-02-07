@@ -4,12 +4,13 @@
 html {
   --white-color: #fff;
   --dark-main-color: #202020;
-  --light-main-color: #f0e7cf;
+  --light-main-color: hsl(44, 52%, 88%);
   --accent-main-color: #3de093;
   --accent-main-darker-color: #00bc64;
   --accent-second-color: #f51963;
   --error-red-color: hsl(0, 100%, 59%);
 }
+
 * {
   padding: 0px;
   margin: 0px;
@@ -25,6 +26,7 @@ body {
   height: 100%;
   min-width: 320px;
 }
+
 body {
   color: var(--light-main-color);
   line-height: 1;
@@ -90,6 +92,20 @@ sub,
 sup {
   line-height: 0;
 }
+.donat-frame {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 355px;
+}
+@media (max-width: 520px){
+  .donat-frame {
+    display: block;
+    margin: 0 auto;
+    width: 280px;
+    height: 480px;
+  }
+}
 
 .wrapper {
   min-height: 100vh;
@@ -100,9 +116,9 @@ sup {
   background: url('../img/noise_black.jpg');
   position: relative;
 }
-.wrapper__main {
+/* .wrapper__main {
   background: url('../img/bg_programs.jpg') no-repeat center center / cover;
-}
+} */
 .page_photo {
   padding: 50px 0;
 }
@@ -113,9 +129,9 @@ sup {
   .page_photo {
     background: none;
   }
-  .wrapper__main {
+  /* .wrapper__main {
     background: url('../img/noise_black.jpg');
-  }
+  } */
 }
 .wrapper > main {
   flex: 1 1 auto;
