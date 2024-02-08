@@ -98,7 +98,8 @@ function renderResultAndSolution() {
   else if (+numberFrom !== 10 && +numberTo === 10) {
     solutionBody.innerHTML = convertFromBaseToDec(number, numberFrom).strToHTML
   } else if (+numberFrom === 10 && +numberTo !== 10) {
-    solutionBody.innerHTML = convertFromDecToBase(number, numberTo).strToHTML
+    // solutionBody.innerHTML = convertFromDecToBase(number, numberTo).strToHTML
+    solutionBody.innerHTML = convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, numberTo).strToHTML
   } else if (+numberFrom !== 10 && +numberTo !== 10) {
     const str =
       convertFromBaseToDec(number, numberFrom).strToHTML +
