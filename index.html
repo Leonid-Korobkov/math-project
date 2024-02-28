@@ -5,6 +5,7 @@
   <!-- Yandex.RTB -->
   <script>window.yaContextCb = window.yaContextCb || []</script>
   <script src="https://yandex.ru/ads/system/context.js" async></script>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -220,7 +221,9 @@
       <section class="about-notation">
         <div class="about-notation__container">
           <div class="about-notation__body">
-            <iframe class="donat-frame" src="https://yoomoney.ru/quickpay/fundraise/widget?billNumber=3SjdtwItpMI.240125&" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            <iframe class="donat-frame"
+              src="https://yoomoney.ru/quickpay/fundraise/widget?billNumber=3SjdtwItpMI.240125&" frameborder="0"
+              allowtransparency="true" scrolling="no"></iframe>
 
             <!-- Yandex.RTB R-A-3489239-2 -->
             <div id="yandex_rtb_R-A-3489239-2"></div>
@@ -232,7 +235,33 @@
                   "renderTo": "yandex_rtb_R-A-3489239-2"
                 })
               })
+
+              window.yaContextCb.push(() =>
+              {
+                if (Ya.Context.AdvManager.getPlatform() === 'desktop')
+                {
+                  window.yaContextCb.push(() =>
+                  {
+                    Ya.Context.AdvManager.render({
+                      "blockId": "R-A-3489239-4",
+                      "type": "floorAd",
+                      "platform": "desktop"
+                    })
+                  })
+                } else
+                {
+                  window.yaContextCb.push(() =>
+                  {
+                    Ya.Context.AdvManager.render({
+                      "blockId": "R-A-3489239-3",
+                      "type": "floorAd",
+                      "platform": "touch"
+                    })
+                  })
+                }
+              });
             </script>
+            <!-- Yandex.RTB R-A-3489239-3 -->
             <h3 class="about-notation__main-title main-title main-title_mini">Системы счисления</h3>
             <ul class="about-notation__list">
               <li class="about-notation__item">
@@ -338,11 +367,13 @@
       </div>
     </footer>
   </div>
+
   <div itemscope itemtype="http://schema.org/ImageObject">
     <meta itemprop="name" content="Перевод систем счисления">
-    <meta itemprop="contentUrl" content="img/main-screen-for-yandex.png">
+    <img src="img/main-screen-for-yandex.png" alt="Интерфейс программы" itemprop="contentUrl" />
     <meta itemprop="description" content="Интерфейс программы по переводу систем счисления">
   </div>
+
   <script src="js/app.js"></script>
   <script>
     if ('serviceWorker' in navigator)
