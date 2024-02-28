@@ -238,23 +238,17 @@
 
                 if (Ya.Context.AdvManager.getPlatform() === 'desktop')
                 {
-                  window.yaContextCb.push(() =>
-                  {
-                    Ya.Context.AdvManager.render({
-                      "blockId": "R-A-3489239-4",
-                      "type": "floorAd",
-                      "platform": "desktop"
-                    })
+                  Ya.Context.AdvManager.render({
+                    "blockId": "R-A-3489239-4",
+                    "type": "floorAd",
+                    "platform": "desktop"
                   })
                 } else
                 {
-                  window.yaContextCb.push(() =>
-                  {
-                    Ya.Context.AdvManager.render({
-                      "blockId": "R-A-3489239-3",
-                      "type": "floorAd",
-                      "platform": "touch"
-                    })
+                  Ya.Context.AdvManager.render({
+                    "blockId": "R-A-3489239-3",
+                    "type": "floorAd",
+                    "platform": "touch"
                   })
                 }
               });
