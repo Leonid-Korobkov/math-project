@@ -227,30 +227,14 @@
               allowtransparency="true" scrolling="no"></iframe>
 
             <!-- Yandex.RTB R-A-3489239-2 -->
-            <!-- <div id="yandex_rtb_R-A-3489239-2"></div> -->
+            <div id="yandex_rtb_R-A-3489239-2"></div>
             <script>
               window.yaContextCb.push(() =>
               {
-                // Ya.Context.AdvManager.render({
-                //   "blockId": "R-A-3489239-2",
-                //   "renderTo": "yandex_rtb_R-A-3489239-2"
-                // })
-
-                if (Ya.Context.AdvManager.getPlatform() === 'desktop')
-                {
-                  Ya.Context.AdvManager.render({
-                    "blockId": "R-A-3489239-4",
-                    "type": "floorAd",
-                    "platform": "desktop"
-                  })
-                } else
-                {
-                  Ya.Context.AdvManager.render({
-                    "blockId": "R-A-3489239-3",
-                    "type": "floorAd",
-                    "platform": "touch"
-                  })
-                }
+                Ya.Context.AdvManager.render({
+                  "blockId": "R-A-3489239-2",
+                  "renderTo": "yandex_rtb_R-A-3489239-2"
+                })
               });
             </script>
             <!-- Yandex.RTB R-A-3489239-3 -->
