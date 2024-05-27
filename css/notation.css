@@ -1,4 +1,3 @@
-
 /* Перевод с/с */
 .main-notation {
   padding-bottom: 40px;
@@ -33,11 +32,11 @@
 .main-notation__descr-list .main-notation__descr:last-child {
   margin-bottom: 30px;
 }
-@media (min-width: 769px) {
-  .main-notation__converter-block.form {
-    margin-bottom: 20px;
-  }
+
+.main-notation__converter-block.form {
+  margin-bottom: 20px;
 }
+
 @media (max-width: 768px) {
   .main-notation__body {
     display: -webkit-box;
