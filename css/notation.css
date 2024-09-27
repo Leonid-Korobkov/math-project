@@ -50,12 +50,12 @@
   .main-notation__converter-block.form {
     margin-top: 30px;
   }
-  .main-notation__body .main-notation__descr-list {
+  /* .main-notation__body .main-notation__descr-list {
     -webkit-box-ordinal-group: 5;
     -ms-flex-order: 4;
     order: 4;
     margin-top: 40px;
-  }
+  } */
   .main-notation__descr-list .main-notation__descr:last-child {
     margin-bottom: 0px;
   }
