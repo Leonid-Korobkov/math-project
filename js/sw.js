@@ -20,7 +20,7 @@ self.addEventListener('install', e => {
         'img/arrow-left.svg',
         'img/arrow-right.svg',
         'img/arrows.svg',
-        'img/logo.svg'
+        'img/logo.png'
       ])
     })
   )
