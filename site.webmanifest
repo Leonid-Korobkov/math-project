@@ -1,12 +1,6 @@
 {
-  "name": "Notation",
-  "short_name": "notation",
-  "description": "Калькулятор позволяет переводить целые числа из одной системы счисления в другую с подробным решением.",
-  "start_url": "https://leonid-korobkov.github.io/math-project/",
-  "lang": "ru",
-  "display": "standalone",
-  "theme_color": "#202020",
-  "background_color": "#202020",
+  "name": "Skynora",
+  "short_name": "skynora",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -20,5 +14,8 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "theme_color": "#0a0a0f",
+  "background_color": "#0a0a0f",
+  "display": "standalone"
 }

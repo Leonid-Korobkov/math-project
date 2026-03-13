@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-title" content="Notation">
   <meta name="msapplication-starturl" content="https://leonid-korobkov.github.io/math-project/">
 
-  <meta name="theme-color" content="#202020">
+  <meta name="theme-color" content="#0b1016">
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -78,6 +78,9 @@
 
     <main class="page">
       <section class="main-notation">
+        <div class="aurora-wrapper hero-aurora">
+          <canvas class="aurora-canvas" data-colors="#22d3ee,#3b82f6,#7c3aed"></canvas>
+        </div>
         <div class="main-notation__container">
           <div class="main-notation__body">
             <h1 class="main-notation__title main-title">Перевод чисел в различные системы счисления с решением</h1>
@@ -226,6 +229,23 @@
         </div>
       </section>
 
+      <section class="skynora-cta">
+        <div class="skynora-cta__container">
+          <div class="skynora-cta__card">
+            <div class="skynora-cta__content">
+              <span class="skynora-cta__eyebrow">Skynora</span>
+              <h3 class="skynora-cta__title">Хотите увидеть северное сияние вживую?</h3>
+              <p class="skynora-cta__text">
+                Перейдите на skynora.ru — там прогнозы, реальные наблюдения и уведомления о сиянии по вашему региону.
+              </p>
+            </div>
+            <a class="skynora-cta__button" href="https://skynora.ru" target="_blank" rel="noopener">
+              Перейти на skynora.ru
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="about-notation">
         <div class="about-notation__container">
           <div class="about-notation__body">
@@ -341,6 +361,7 @@
     <meta itemprop="description" content="Интерфейс программы по переводу систем счисления">
   </div> -->
 
+  <script src="js/aurora.js"></script>
   <script src="js/app.js"></script>
   <script>
     if ('serviceWorker' in navigator)
