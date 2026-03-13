@@ -5,9 +5,39 @@ const formButton = form.button
 const formNumber = form.number
 const formNumberFrom = form.fromNum
 const formNumberTo = form.toNum
-const formNumberWrapper = document.querySelector('.converter-block__input-wrapper')
+const formNumberWrapper = document.querySelector(
+  '.converter-block__input-wrapper',
+)
+const currentYearEl = document.querySelector('#current-year')
 
-function addErrorMessage(base, message = `Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`) {
+if (currentYearEl) {
+  currentYearEl.textContent = new Date().getFullYear()
+}
+
+function syncEmptySections() {
+  const resultSection = document.querySelector('.notation-result')
+  const solutionSection = document.querySelector('.solution-conversion')
+  const resultBody = document.querySelector('.notation-result__body')
+  const solutionBody = document.querySelector('.solution-conversion__body')
+
+  if (resultSection && resultBody) {
+    resultSection.classList.toggle('is-empty', !resultBody.textContent.trim())
+  }
+  if (solutionSection && solutionBody) {
+    solutionSection.classList.toggle('is-empty', !solutionBody.textContent.trim())
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', syncEmptySections)
+} else {
+  syncEmptySections()
+}
+
+function addErrorMessage(
+  base,
+  message = `Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`,
+) {
   errorMessage.style.display = 'block'
   errorMessage.innerHTML = message
   formButton.style.opacity = '0.3'
@@ -23,12 +53,13 @@ function removeErrorMessage() {
 }
 // Проверка на правильную систему счисления
 function isValidate(number, base) {
-  number = number.replace(/\s/g,'')
+  number = number.replace(/\s/g, '')
   formNumber.value = number
   number = number.replace(/^0+/, '')
   return (
     /^[0-9a-z]*\.?[0-9a-z]*$/i.test(number) &&
-    parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() === number.toString().toLowerCase()
+    parseBigInt(number.toLowerCase(), base).toString(base).toLowerCase() ===
+      number.toString().toLowerCase()
   )
 }
 
@@ -39,7 +70,7 @@ function validateNumberInput(number, base) {
   if (number.split('').every((char) => char === '0') || number === '') {
     addErrorMessage(
       base,
-      `Строка не может быть пустой или состоять только из нулей!<br>Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`
+      `Строка не может быть пустой или состоять только из нулей!<br>Допустимые символы: <span>${allowedChars.slice(0, base)}</span>`,
     )
     return false
   }
@@ -54,7 +85,10 @@ function validateNumberInput(number, base) {
 
 // Слушатели событий
 form.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter' && !isValidate(formNumber.value, formNumberFrom.value)) {
+  if (
+    e.key === 'Enter' &&
+    !isValidate(formNumber.value, formNumberFrom.value)
+  ) {
     e.preventDefault()
   }
 })
@@ -70,11 +104,10 @@ formNumberFrom.addEventListener('change', function () {
 })
 formNumber.addEventListener('focus', function () {
   formNumberWrapper.classList.add('input-wrapper_focus')
-  validateNumberInput(formNumber.value, formNumberFrom.value)
 })
 // Отмена фокуса на input при клике в другую область
 document.addEventListener('click', function (e) {
-  const target = e.target;
+  const target = e.target
   if (target.closest('.converter-block__img')) {
     let temp = formNumberFrom.value
     formNumberFrom.value = formNumberTo.value
@@ -94,16 +127,23 @@ function renderResultAndSolution() {
   const number = formNumber.value.replace(/^0+/, '')
   const numberFrom = formNumberFrom.value
   const numberTo = form.toNum.value
-  if (+numberFrom === +numberTo) {solutionBody.innerHTML = ''}
-  else if (+numberFrom !== 10 && +numberTo === 10) {
+  if (+numberFrom === +numberTo) {
+    solutionBody.innerHTML = ''
+  } else if (+numberFrom !== 10 && +numberTo === 10) {
     solutionBody.innerHTML = convertFromBaseToDec(number, numberFrom).strToHTML
   } else if (+numberFrom === 10 && +numberTo !== 10) {
     // solutionBody.innerHTML = convertFromDecToBase(number, numberTo).strToHTML
-    solutionBody.innerHTML = convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, numberTo).strToHTML
+    solutionBody.innerHTML = convertFromDecToBase(
+      convertFromBaseToDec(number, numberFrom).result,
+      numberTo,
+    ).strToHTML
   } else if (+numberFrom !== 10 && +numberTo !== 10) {
     const str =
       convertFromBaseToDec(number, numberFrom).strToHTML +
-      convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, numberTo).strToHTML
+      convertFromDecToBase(
+        convertFromBaseToDec(number, numberFrom).result,
+        numberTo,
+      ).strToHTML
     solutionBody.innerHTML = str
   } else {
     solutionBody.innerHTML = ''
@@ -126,47 +166,71 @@ function renderResultAndSolution() {
     </g>
     </svg>
     `
+
+  const svgIconCopyHtmlWhite = `
+    <svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" stroke="">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <path
+        d="M13.49 3 10.74.37A1.22 1.22 0 0 0 9.86 0h-4a1.25 1.25 0 0 0-1.22 1.25v11a1.25 1.25 0 0 0 1.25 1.25h6.72a1.25 1.25 0 0 0 1.25-1.25V3.88a1.22 1.22 0 0 0-.37-.88zm-.88 9.25H5.89v-11h2.72v2.63a1.25 1.25 0 0 0 1.25 1.25h2.75zm0-8.37H9.86V1.25l2.75 2.63z">
+      </path>
+      <path
+        d="M10.11 14.75H3.39v-11H4V2.5h-.61a1.25 1.25 0 0 0-1.25 1.25v11A1.25 1.25 0 0 0 3.39 16h6.72a1.25 1.25 0 0 0 1.25-1.25v-.63h-1.25z">
+      </path>
+    </g>
+    </svg>
+    `
   const resultHTML = `
     <div class="notation-result__title">результат:</div>
     <div class="notation-result__result-num">
         <span class="notation-result__result-num-from">${addIndexForNumber(
           groupDigits(number, numberFrom),
-          `<sub class="notation-result__result-num-from-notation">${numberFrom}</sub>`
+          `<sub class="notation-result__result-num-from-notation">${numberFrom}</sub>`,
         )}</span>
         <span class="notation-result__result-sep">=</span>
         <span class="notation-result__result-num-to">${addIndexForNumber(
           groupDigits(convertedNumber, numberTo),
-          `<sub class="notation-result__result-num-to-notation">${numberTo}</sub>`
+          `<sub class="notation-result__result-num-to-notation">${numberTo}</sub>`,
         )}</span>
     </div>
     <div class="notation-result__btns">
       <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_input-num" title="Скопировать вводное число">${svgIconCopyHtml}число</button>
-      <button type="button" class="notation-result__btn notation-result__btn_output-num" title="Скопировать результат вычислений">${svgIconCopyHtml}ответ</button>
+      <button type="button" class="notation-result__btn notation-result__btn_output-num" title="Скопировать результат вычислений">${svgIconCopyHtmlWhite}ответ</button>
     </div>
     <div class="notation-result__other-base result-other-base">
       <div class="result-other-base__title">Результаты во всех часто используемых системах:</div>
       <ul class="result-other-base__list">
         <li class="result-other-base__item"><div class="result-other-base__text">2-ая: <span>${groupDigits(
-          convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, '2').result,
-          '2'
+          convertFromDecToBase(
+            convertFromBaseToDec(number, numberFrom).result,
+            '2',
+          ).result,
+          '2',
         )}</span><sub class="result-other-base__item-base">2</sub></div>
         <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
         </li>
         <li class="result-other-base__item"><div class="result-other-base__text">8-ая: <span>${groupDigits(
-          convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, '8').result,
-          '8'
+          convertFromDecToBase(
+            convertFromBaseToDec(number, numberFrom).result,
+            '8',
+          ).result,
+          '8',
         )}</span><sub class="result-other-base__item-base">8</sub></div>
         <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
         </li>
         <li class="result-other-base__item"><div class="result-other-base__text">10-ая: <span>${groupDigits(
           convertFromBaseToDec(number, numberFrom).result,
-          '10'
+          '10',
         )}</span><sub class="result-other-base__item-base">10</sub></div>
         <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
         </li>
         <li class="result-other-base__item"><div class="result-other-base__text">16-ая: <span>${groupDigits(
-          convertFromDecToBase(convertFromBaseToDec(number, numberFrom).result, '16').result,
-          '16'
+          convertFromDecToBase(
+            convertFromBaseToDec(number, numberFrom).result,
+            '16',
+          ).result,
+          '16',
         )}</span><sub class="result-other-base__item-base">16</sub></div>
         <button type="button" class="notation-result__btn notation-result__btn_white notation-result__btn_white-mini" title="Скопировать результат в двоичной с/с">${svgIconCopyHtml}</button>
         </li>
@@ -177,22 +241,38 @@ function renderResultAndSolution() {
   resultBody.style.opacity = 1
   solutionBody.style.opacity = 1
 
+  const resultSection = document.querySelector('.notation-result')
+  if (resultSection) {
+    requestAnimationFrame(() => {
+      resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
+  syncEmptySections()
+
   formNumber.blur()
 
   // Копирование остальных с/с
-  const resultItemsBtnsMini = Array.from(document.querySelectorAll('.result-other-base__item'))
+  const resultItemsBtnsMini = Array.from(
+    document.querySelectorAll('.result-other-base__item'),
+  )
   resultItemsBtnsMini.forEach(function (item) {
-    item.querySelector('.notation-result__btn_white-mini').addEventListener('click', function (e) {
-      const itemTextContent = item.querySelector('.result-other-base__text span').textContent.replace(/\s/g, '')
-      navigator.clipboard.writeText(itemTextContent)
-      resultItemsBtnsMini.forEach(function (item) {
-        item.querySelector('.notation-result__btn_white-mini').classList.remove('active')
+    item
+      .querySelector('.notation-result__btn_white-mini')
+      .addEventListener('click', function (e) {
+        const itemTextContent = item
+          .querySelector('.result-other-base__text span')
+          .textContent.replace(/\s/g, '')
+        navigator.clipboard.writeText(itemTextContent)
+        resultItemsBtnsMini.forEach(function (item) {
+          item
+            .querySelector('.notation-result__btn_white-mini')
+            .classList.remove('active')
+        })
+        this.classList.add('active')
+        setTimeout(() => {
+          this.classList.remove('active')
+        }, 1000)
       })
-      this.classList.add('active')
-      setTimeout(() => {
-        this.classList.remove('active')
-      }, 1000)
-    })
   })
 
   // Копирование числа и ответа
@@ -225,20 +305,20 @@ function convertFromBaseToDec(number, baseFrom) {
   <div class="solution-conversion__text">
     <div class="solution-conversion__title">Решение:</div>
     <div class="solution-conversion__text">
-      <p class="solution-conversion__descr">Переводим <span style="color: #202020;text-transform: uppercase;">${groupDigits(
+      <p class="solution-conversion__descr">Переводим <span style="text-transform: uppercase;">${groupDigits(
         number,
-        baseFrom
+        baseFrom,
       )}<sub>${baseFrom}</sub></span> в десятичную систему счисления:</p>
       <div class="solution-conversion__result-text">${groupDigits(
         number,
-        baseFrom
+        baseFrom,
       )}<sub>${baseFrom}</sub> = <code>${str}</code> = <span>${groupDigits(result.toString(), '10')}<sub>10</sub></span></div>
     </div>
   </div>
   `
   return {
     result,
-    strToHTML
+    strToHTML,
   }
 }
 
@@ -260,9 +340,9 @@ function convertFromDecToBase(number, baseTo) {
     i++
   }
   let result = number.toString(baseTo)
-  str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="color: #00bc64">${groupDigits(
+  str += `<li class="solution-conversion__item">${number}<sub>10</sub> = <span style="">${groupDigits(
     result.toString(),
-    baseTo
+    baseTo,
   )}<sub>${baseTo}</span></sub></li>`
   let strToHTML = `
     <div class="solution-conversion__text">
@@ -322,7 +402,7 @@ function groupDigits(number, base) {
 }
 
 function addIndexForNumber(number, htmlSub = '') {
-  let index = number.replace(/\s/g,'').length - 1
+  let index = number.replace(/\s/g, '').length - 1
   let strHTML = ''
   for (let i = 0; i < number.length - 1; i++) {
     if (number[i] !== ' ') {

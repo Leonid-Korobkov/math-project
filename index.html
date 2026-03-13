@@ -2,10 +2,6 @@
 <html lang="ru">
 
 <head>
-  <!-- Yandex.RTB -->
-  <script>window.yaContextCb = window.yaContextCb || []</script>
-  <script src="https://yandex.ru/ads/system/context.js" async></script>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +9,15 @@
   <meta name="yandex-verification" content="c2b53a53c55390c5" />
 
   <meta name="description"
-    content="Калькулятор позволяет переводить целые числа из одной системы счисления в другую с подробным решением.">
-  <meta name="keywords" content="Перевод систем счисления, с/с, конвертация">
-  <meta name="robots" content="all" />
-  <meta name="author" content="Коробков Леонид" />
-  <meta name="copyright" lang="ru" content="ИП-21-3 Коробков Леонид" />
-  <title>Перевод систем счисления</title>
+    content="Онлайн‑калькулятор перевода чисел между системами счисления (от 2 до 36) с подробным решением и дополнительными представлениями.">
+  <meta name="keywords" content="перевод систем счисления, калькулятор, конвертация чисел, двоичная, восьмеричная, десятичная, шестнадцатеричная">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Skynora" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://leonid-korobkov.github.io/math-project/" />
+  <link rel="alternate" hreflang="ru-RU" href="https://leonid-korobkov.github.io/math-project/" />
+  <link rel="alternate" hreflang="x-default" href="https://leonid-korobkov.github.io/math-project/" />
+  <title>Калькулятор перевода систем счисления — Notation</title>
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -30,7 +29,24 @@
   <meta name="apple-mobile-web-app-title" content="Notation">
   <meta name="msapplication-starturl" content="https://leonid-korobkov.github.io/math-project/">
 
-  <meta name="theme-color" content="#202020">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <meta property="og:title" content="Калькулятор перевода систем счисления — Notation" />
+  <meta property="og:description"
+    content="Онлайн‑калькулятор перевода чисел между системами счисления (2–36) с подробным решением и доп. представлениями." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Notation" />
+  <meta property="og:url" content="https://leonid-korobkov.github.io/math-project/" />
+  <meta property="og:image" content="https://leonid-korobkov.github.io/math-project/img/main-screen-notation.png" />
+  <meta property="og:image:alt" content="Интерфейс калькулятора перевода систем счисления" />
+  <meta property="og:locale" content="ru_RU" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Калькулятор перевода систем счисления — Notation" />
+  <meta name="twitter:description"
+    content="Онлайн‑калькулятор перевода чисел между системами счисления (2–36) с подробным решением." />
+  <meta name="twitter:image" content="https://leonid-korobkov.github.io/math-project/img/main-screen-notation.png" />
+  <meta name="twitter:image:alt" content="Интерфейс калькулятора перевода систем счисления" />
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -39,15 +55,48 @@
   <meta name="apple-mobile-web-app-title" content="krbln" />
   <link rel="manifest" href="/site.webmanifest" />
 
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://leonid-korobkov.github.io/math-project/#organization",
+          "name": "Skynora",
+          "url": "https://leonid-korobkov.github.io/math-project/",
+          "logo": "https://leonid-korobkov.github.io/math-project/img/logo.png"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://leonid-korobkov.github.io/math-project/#website",
+          "url": "https://leonid-korobkov.github.io/math-project/",
+          "name": "Notation",
+          "publisher": { "@id": "https://leonid-korobkov.github.io/math-project/#organization" },
+          "inLanguage": "ru-RU"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://leonid-korobkov.github.io/math-project/#webapp",
+          "name": "Notation",
+          "url": "https://leonid-korobkov.github.io/math-project/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "inLanguage": "ru-RU",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+        }
+      ]
+    }
+  </script>
+
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
-      (function (m, e, t, r, i, k, a)
-      {
-        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-      })
+    (function (m, e, t, r, i, k, a)
+    {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(93331210, "init", {
@@ -66,45 +115,36 @@
 
   <div class="wrapper wrapper__notation">
 
-    <header class="header">
-      <div class="header__container">
-        <div class="header__body">
-          <div class="header__logo">
-            <img src="img/logo.png" alt="logo">
-          </div>
-        </div>
+    <header class="header navbar">
+      <div class="header__container navbar-container">
+        <a class="logo" href="/">
+          <img class="logo-img" src="img/logo.png" alt="Skynora logo">
+          <span class="logo-text">Skynora</span>
+        </a>
+        <a class="nav-link" href="https://skynora.ru" target="_blank" rel="noopener">skynora.ru</a>
       </div>
     </header>
 
     <main class="page">
       <section class="main-notation">
+        <div class="aurora-wrapper" aria-hidden="true">
+          <canvas class="aurora-canvas" data-colors="#3c50e0,#10b981,#8b5cf6"></canvas>
+        </div>
         <div class="main-notation__container">
           <div class="main-notation__body">
-            <h1 class="main-notation__title main-title">Перевод чисел в различные системы счисления с решением</h1>
+            <h1 class="main-notation__title main-title">Перевод чисел между системами счисления</h1>
 
             <div class="main-notation__descr-list">
-              <p class="main-notation__descr">Калькулятор позволяет переводить целые числа из одной системы
-                счисления в другую. Основание системы счисления не может быть меньше 2 и больше 36 (10 цифр и 26
-                латинских
-                букв). Длина чисел не имеет предела. </p>
-
               <p class="main-notation__descr">
-                Чтобы перевести число из одной системы в другую, введите исходное
-                число в первое поле, основание
-                исходной системы счисления во второе и основание системы счисления, в которую нужно перевести число, в
-                третье поле, после чего нажмите кнопку "Перевести". Вы увидите результат перевода, а также значение
-                числа
-                в других часто используемых с/c.
+                Введите число и основания, затем нажмите «Перевести». Поддерживаются основания от 2 до 36, включая
+                буквенные символы A–Z для больших оснований.
               </p>
-
-              <p class="main-notation__descr">Чтобы быстро поменять местами с/с нажмите на кнопку конвертации, которая
-                находится между вторым и третим полемы</p>
             </div>
 
             <form method="POST" name="converterForm" action="#"
               class="main-notation__converter-block converter-block form">
               <label class="converter-block__label converter-block__label_num form-label">
-                <span>Число:</span>
+                <!-- <span>Число:</span> -->
                 <div class="converter-block__input-wrapper input-wrapper"><input type="text" name="number"
                     class="converter-block__input converter-block__input_num form-input"></div>
                 <div class="converter-block__text_error"></div>
@@ -197,19 +237,6 @@
               <button disabled name="button" type="submit"
                 class="converter-block__button form-button">перевести</button>
             </form>
-
-            <!-- Yandex.RTB R-A-3489239-2 -->
-            <div id="yandex_rtb_R-A-3489239-2" class="yandex-metrika-block"></div>
-            <script>
-              window.yaContextCb.push(() =>
-              {
-                Ya.Context.AdvManager.render({
-                  "blockId": "R-A-3489239-2",
-                  "renderTo": "yandex_rtb_R-A-3489239-2"
-                })
-              });
-            </script>
-            <!-- Yandex.RTB R-A-3489239-3 -->
           </div>
         </div>
       </section>
@@ -223,6 +250,21 @@
       <section class="solution-conversion">
         <div class="solution-conversion__container">
           <div class="solution-conversion__body"></div>
+        </div>
+      </section>
+
+      <section class="cta-skynora">
+        <div class="cta-skynora__container">
+          <div class="cta-skynora__card">
+            <div class="cta-skynora__content">
+              <p class="cta-skynora__eyebrow">Skynora</p>
+              <h3 class="cta-skynora__title">Хотите увидеть северное сияние вживую?</h3>
+              <p class="cta-skynora__text">Посмотрите прогноз и лучшие места на skynora.ru</p>
+            </div>
+            <a class="cta-skynora__button" href="https://skynora.ru" target="_blank" rel="noopener">
+              Перейти на skynora.ru
+            </a>
+          </div>
         </div>
       </section>
 
@@ -327,7 +369,7 @@
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__body">
-          <p class="footer__p">© Коробков Л.А, 2023</p>
+          <p class="footer__p">© Skynora, <span id="current-year"></span></p>
           <p class="footer__p">Front-end Developer - <a class="footer__link"
               href="https://github.com/Leonid-Korobkov">GitHub</a></p>
         </div>
@@ -341,6 +383,7 @@
     <meta itemprop="description" content="Интерфейс программы по переводу систем счисления">
   </div> -->
 
+  <script src="js/aurora.js"></script>
   <script src="js/app.js"></script>
   <script>
     if ('serviceWorker' in navigator)
