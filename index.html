@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-title" content="Notation">
   <meta name="msapplication-starturl" content="https://leonid-korobkov.github.io/math-project/">
 
-  <meta name="theme-color" content="#202020">
+  <meta name="theme-color" content="#0f1115">
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -63,142 +63,146 @@
 </head>
 
 <body>
-
-  <div class="wrapper wrapper__notation">
-
-    <header class="header">
-      <div class="header__container">
-        <div class="header__body">
-          <div class="header__logo">
-            <img src="img/logo.png" alt="logo">
-          </div>
-        </div>
+  <div class="app-layout">
+    <header class="app-header">
+      <div class="header__logo">
+        <img src="img/logo.png" alt="logo">
       </div>
+      <!-- Deleted nav since we want logo center and main focus on tool -->
     </header>
 
-    <main class="page">
-      <section class="main-notation">
-        <div class="main-notation__container">
-          <div class="main-notation__body">
-            <h1 class="main-notation__title main-title">Перевод чисел в различные системы счисления с решением</h1>
-
-            <div class="main-notation__descr-list">
-              <p class="main-notation__descr">Калькулятор позволяет переводить целые числа из одной системы
-                счисления в другую. Основание системы счисления не может быть меньше 2 и больше 36 (10 цифр и 26
-                латинских
-                букв). Длина чисел не имеет предела. </p>
-
-              <p class="main-notation__descr">
-                Чтобы перевести число из одной системы в другую, введите исходное
-                число в первое поле, основание
-                исходной системы счисления во второе и основание системы счисления, в которую нужно перевести число, в
-                третье поле, после чего нажмите кнопку "Перевести". Вы увидите результат перевода, а также значение
-                числа
-                в других часто используемых с/c.
+    <main class="app-main">
+      <!-- Hero / Calculator Section -->
+      <section class="calculator-section">
+        <div class="calculator-card">
+          <div class="calculator-header">
+            <h1>Перевод систем счисления</h1>
+            <div class="calculator-description">
+              <p>Калькулятор позволяет переводить целые числа из одной системы счисления в другую с подробным решением.
               </p>
+              <p>Основание системы счисления не может быть меньше 2 и больше 36. Длина чисел не имеет предела.</p>
+            </div>
+          </div>
 
-              <p class="main-notation__descr">Чтобы быстро поменять местами с/с нажмите на кнопку конвертации, которая
-                находится между вторым и третим полемы</p>
+          <form method="POST" name="converterForm" action="#" class="converter-form">
+            <!-- Number Input Group -->
+            <div class="form-group number-group">
+              <label for="numberInput">Число:</label>
+              <div class="converter-block__input-wrapper input-wrapper">
+                <input type="text" name="number" id="numberInput"
+                  class="converter-block__input converter-block__input_num form-input" placeholder="Введите число"
+                  autocomplete="off">
+              </div>
+              <!-- Error Message Container (Required by JS) -->
+              <div class="converter-block__text_error error-message"></div>
             </div>
 
-            <form method="POST" name="converterForm" action="#"
-              class="main-notation__converter-block converter-block form">
-              <label class="converter-block__label converter-block__label_num form-label">
-                <span>Число:</span>
-                <div class="converter-block__input-wrapper input-wrapper"><input type="text" name="number"
-                    class="converter-block__input converter-block__input_num form-input"></div>
-                <div class="converter-block__text_error"></div>
-              </label>
-              <div class="converter-block__convert">
-                <label class="converter-block__label">
+            <!-- Base Selection Group -->
+            <div class="base-selection-group">
+              <div class="form-group base-group">
+                <label for="converterBlockFrom">Из системы:</label>
+                <div class="select-wrapper">
                   <select name="fromNum" id="converterBlockFrom"
-                    class="converter-block__input converter-block__input_select converter-block__input_select-from form-input">
-                    <option value="2" selected class="converter-block__input_option">2 - Двоичная</option>
-                    <option value="3" class="converter-block__input_option">3</option>
-                    <option value="4" class="converter-block__input_option">4</option>
-                    <option value="5" class="converter-block__input_option">5</option>
-                    <option value="6" class="converter-block__input_option">6</option>
-                    <option value="7" class="converter-block__input_option">7</option>
-                    <option value="8" class="converter-block__input_option">8 - Восьмеричная</option>
-                    <option value="9" class="converter-block__input_option">9</option>
-                    <option value="10" class="converter-block__input_option">10 - Десятичная</option>
-                    <option value="11" class="converter-block__input_option">11</option>
-                    <option value="12" class="converter-block__input_option">12</option>
-                    <option value="13" class="converter-block__input_option">13</option>
-                    <option value="14" class="converter-block__input_option">14</option>
-                    <option value="15" class="converter-block__input_option">15</option>
-                    <option value="16" class="converter-block__input_option">16 - Шестнадцатиричная</option>
-                    <option value="17" class="converter-block__input_option">17</option>
-                    <option value="18" class="converter-block__input_option">18</option>
-                    <option value="19" class="converter-block__input_option">19</option>
-                    <option value="20" class="converter-block__input_option">20</option>
-                    <option value="21" class="converter-block__input_option">21</option>
-                    <option value="22" class="converter-block__input_option">22</option>
-                    <option value="23" class="converter-block__input_option">23</option>
-                    <option value="24" class="converter-block__input_option">24</option>
-                    <option value="25" class="converter-block__input_option">25</option>
-                    <option value="26" class="converter-block__input_option">26</option>
-                    <option value="27" class="converter-block__input_option">27</option>
-                    <option value="28" class="converter-block__input_option">28</option>
-                    <option value="29" class="converter-block__input_option">29</option>
-                    <option value="30" class="converter-block__input_option">30</option>
-                    <option value="31" class="converter-block__input_option">31</option>
-                    <option value="32" class="converter-block__input_option">32</option>
-                    <option value="33" class="converter-block__input_option">33</option>
-                    <option value="34" class="converter-block__input_option">34</option>
-                    <option value="35" class="converter-block__input_option">35</option>
-                    <option value="36" class="converter-block__input_option">36</option>
+                    class="converter-block__input converter-block__input_select converter-block__input_select-from form-select">
+                    <option value="2">2 - Двоичная</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8 - Восьмеричная</option>
+                    <option value="9">9</option>
+                    <option value="10" selected>10 - Десятичная</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16 - Шестнадцатиричная</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
                   </select>
-                </label>
-                <div class="converter-block__img">
-                  <img src="img/arrows.svg" alt="" title="Поменять местами">
                 </div>
-                <label class="converter-block__label">
-                  <select name="toNum" id="converterBlockTo"
-                    class="converter-block__input converter-block__input_select converter-block__input_select-to form-input">
-                    <option value="2" class="converter-block__input_option">2 - Двоичная</option>
-                    <option value="3" class="converter-block__input_option">3</option>
-                    <option value="4" class="converter-block__input_option">4</option>
-                    <option value="5" class="converter-block__input_option">5</option>
-                    <option value="6" class="converter-block__input_option">6</option>
-                    <option value="7" class="converter-block__input_option">7</option>
-                    <option value="8" class="converter-block__input_option">8 - Восьмиричная</option>
-                    <option value="9" class="converter-block__input_option">9</option>
-                    <option value="10" class="converter-block__input_option">10 - Десятичная</option>
-                    <option value="11" class="converter-block__input_option">11</option>
-                    <option value="12" class="converter-block__input_option">12</option>
-                    <option value="13" class="converter-block__input_option">13</option>
-                    <option value="14" class="converter-block__input_option">14</option>
-                    <option value="15" class="converter-block__input_option">15</option>
-                    <option value="16" selected class="converter-block__input_option">16 - Шестнадцатиричная</option>
-                    <option value="17" class="converter-block__input_option">17</option>
-                    <option value="18" class="converter-block__input_option">18</option>
-                    <option value="19" class="converter-block__input_option">19</option>
-                    <option value="20" class="converter-block__input_option">20</option>
-                    <option value="21" class="converter-block__input_option">21</option>
-                    <option value="22" class="converter-block__input_option">22</option>
-                    <option value="23" class="converter-block__input_option">23</option>
-                    <option value="24" class="converter-block__input_option">24</option>
-                    <option value="25" class="converter-block__input_option">25</option>
-                    <option value="26" class="converter-block__input_option">26</option>
-                    <option value="27" class="converter-block__input_option">27</option>
-                    <option value="28" class="converter-block__input_option">28</option>
-                    <option value="29" class="converter-block__input_option">29</option>
-                    <option value="30" class="converter-block__input_option">30</option>
-                    <option value="31" class="converter-block__input_option">31</option>
-                    <option value="32" class="converter-block__input_option">32</option>
-                    <option value="33" class="converter-block__input_option">33</option>
-                    <option value="34" class="converter-block__input_option">34</option>
-                    <option value="35" class="converter-block__input_option">35</option>
-                    <option value="36" class="converter-block__input_option">36</option>
-                  </select>
-                </label>
               </div>
-              <button disabled name="button" type="submit"
-                class="converter-block__button form-button">перевести</button>
-            </form>
 
-            <!-- Yandex.RTB R-A-3489239-2 -->
+              <!-- Swap Button (Required by JS: .converter-block__img) -->
+              <button type="button" class="swap-button converter-block__img" aria-label="Поменять местами"
+                title="Поменять местами">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16" />
+                </svg>
+              </button>
+
+              <div class="form-group base-group">
+                <label for="converterBlockTo">В систему:</label>
+                <div class="select-wrapper">
+                  <select name="toNum" id="converterBlockTo"
+                    class="converter-block__input converter-block__input_select converter-block__input_select-to form-select">
+                    <option value="2">2 - Двоичная</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8 - Восьмиричная</option>
+                    <option value="9">9</option>
+                    <option value="10">10 - Десятичная</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16" selected>16 - Шестнадцатиричная</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button disabled name="button" type="submit" class="submit-button converter-block__button form-button">
+              ПЕРЕВЕСТИ
+            </button>
+          </form>
+
+          <!-- Yandex.RTB R-A-3489239-2 -->
+          <div class="ads-container">
             <div id="yandex_rtb_R-A-3489239-2" class="yandex-metrika-block"></div>
             <script>
               window.yaContextCb.push(() =>
@@ -209,137 +213,133 @@
                 })
               });
             </script>
-            <!-- Yandex.RTB R-A-3489239-3 -->
           </div>
+          <!-- Yandex.RTB R-A-3489239-3 -->
         </div>
       </section>
 
-      <section class="notation-result">
-        <div class="notation-result__container">
-          <div class="notation-result__body"></div>
+      <!-- Results Section (Populated by JS) -->
+      <section class="results-section notation-result">
+        <div class="result-card notation-result__body">
+          <!-- Content injected by JS -->
         </div>
       </section>
 
-      <section class="solution-conversion">
-        <div class="solution-conversion__container">
-          <div class="solution-conversion__body"></div>
+      <!-- Solution Section (Populated by JS) -->
+      <section class="solution-section solution-conversion">
+        <div class="solution-card solution-conversion__body">
+          <!-- Content injected by JS -->
         </div>
       </section>
 
-      <section class="about-notation">
-        <div class="about-notation__container">
-          <div class="about-notation__body">
-            <h3 class="about-notation__main-title main-title main-title_mini">Системы счисления</h3>
-            <ul class="about-notation__list">
-              <li class="about-notation__item">
-                <h3 class="about-notation__title">Кратко об основных системах счисления</h3>
-                <div class="about-notation__text">
-                  <h4 class="about-notation__descr"><span>Системы счисления</span> - это способы представления чисел с
-                    помощью цифр.
-                  </h4>
-                  <ul class="about-notation__list_num">
-                    <li class="about-notation__item_num">
-                      <span>Десятичная система счисления</span>: в этой системе
-                      используются цифры
-                      <code>от 0 до 9</code>. Используется в повседневной жизни и является самой распространенной. Все
-                      числа, которые нас окружают представлены в этой системе.
-                    </li>
-                    <li class="about-notation__item_num">
-                      <span>Двоичная система счисления</span>: в этой системе
-                      используются только
-                      две цифры - <code>0 и 1</code>. Используется в вычислительной технике.
-                    </li>
-                    <li class="about-notation__item_num">
-                      <span>Восьмеричная система счисления</span>: в этой системе
-                      используются
-                      восемь цифр - <code>от 0 до 7</code>. Каждая цифра обозначает определенное количество единиц,
-                      которые
-                      соответствуют ее разряду. Также иногда применяется в цифровой технике.
-                    </li>
-                    <li class="about-notation__item_num">
-                      <span>Шестнадцатеричная система счисления</span>: в этой системе
-                      используются
-                      шестнадцать цифр - <code>от 0 до 9</code> и <code>от A до F</code>. Наиболее распространена в
-                      современных компьютерах. При
-                      помощи неё, например, указывают цвет. <code>#FF0000</code> - красный цвет.
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="about-notation__item">
-                <h3 class="about-notation__title">Перевод в десятичную систему счисления</h3>
-                <div class="about-notation__text">
-                  <p class="about-notation__paragraph">
-                    Имеется число a1a2a3 в системе счисления с основанием b. Для перевода в 10-ю систему необходимо
-                    каждый разряд числа умножить на bn, где n — номер разряда. Таким образом,
-                    <code>(a<sub>1</sub>a<sub>2</sub>a<sub>3</sub>)<sub>b</sub></code> = <code>(a<sub>1</sub>*b<sup>2</sup> + a<sub>2</sub>*b<sup>1</sup>
-                    + a<sub>3</sub>*b<sup>0</sup>)<sub>10</sub></code>.
-                  </p>
-                  <p class="about-notation__paragraph"><span>Пример:</span> <code>101<sub>2</sub></code> =
-                    <code>1*2<sup>2</sup> + 0*2<sup>1</sup> + 1*2<sup>0</sup></code> = <code>4+0+1</code> =
-                    <code>5<sub>10</sub></code>
-                  </p>
-                </div>
-              </li>
-              <li class="about-notation__item">
-                <h3 class="about-notation__title">Перевод из десятичной системы счисления в другие</h3>
-                <div class="about-notation__text">
-                  <ul class="about-notation__list_num">
-                    <h4 class="about-notation__descr"><span>Целая часть:</span></h4>
-                    <li class="about-notation__item_num">
-                      Последовательно делим целую часть десятичного числа на основание системы, в которую переводим,
-                      пока
-                      десятичное число не станет равно нулю.
-                    </li>
-                    <li class="about-notation__item_num">
-                      Полученные при делении остатки являются цифрами искомого числа. Число в новой системе записывают,
-                      начиная с последнего остатка.
-                    </li>
-                  </ul>
-                  <ul class="about-notation__list_num">
-                    <h4 class="about-notation__descr"><span>Дробная часть:</span></h4>
-                    <li class="about-notation__item_num">
-                      Дробную часть десятичного числа умножаем на основание системы, в которую требуется перевести.
-                      Отделяем целую часть. Продолжаем умножать дробную часть на основание новой системы, пока она не
-                      станет равной 0.
-                    </li>
-                    <li class="about-notation__item_num">
-                      Число в новой системе составляют целые части результатов умножения в порядке, соответствующем их
-                      получению.
-                    </li>
-                  </ul>
-                  <p class="about-notation__paragraph">
+      <!-- About / Info Section -->
+      <section id="about" class="about-notation">
+        <div class="info-card">
+          <h3 class="about-notation__main-title main-title main-title_mini">Системы счисления</h3>
+          <ul class="about-notation__list">
+            <li class="about-notation__item">
+              <h3 class="about-notation__title">Кратко об основных системах счисления</h3>
+              <div class="about-notation__text">
+                <h4 class="about-notation__descr"><span>Системы счисления</span> - это способы представления чисел с
+                  помощью цифр.
+                </h4>
+                <ul class="about-notation__list_num">
+                  <li class="about-notation__item_num">
+                    <span>Десятичная система счисления</span>: в этой системе
+                    используются цифры
+                    <code>от 0 до 9</code>. Используется в повседневной жизни и является самой распространенной. Все
+                    числа, которые нас окружают представлены в этой системе.
+                  </li>
+                  <li class="about-notation__item_num">
+                    <span>Двоичная система счисления</span>: в этой системе
+                    используются только
+                    две цифры - <code>0 и 1</code>. Используется в вычислительной технике.
+                  </li>
+                  <li class="about-notation__item_num">
+                    <span>Восьмеричная система счисления</span>: в этой системе
+                    используются
+                    восемь цифр - <code>от 0 до 7</code>. Каждая цифра обозначает определенное количество единиц,
+                    которые
+                    соответствуют ее разряду. Также иногда применяется в цифровой технике.
+                  </li>
+                  <li class="about-notation__item_num">
+                    <span>Шестнадцатеричная система счисления</span>: в этой системе
+                    используются
+                    шестнадцать цифр - <code>от 0 до 9</code> и <code>от A до F</code>. Наиболее распространена в
+                    современных компьютерах. При
+                    помощи неё, например, указывают цвет. <code>#FF0000</code> - красный цвет.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="about-notation__item">
+              <h3 class="about-notation__title">Перевод в десятичную систему счисления</h3>
+              <div class="about-notation__text">
+                <p class="about-notation__paragraph">
+                  Имеется число a1a2a3 в системе счисления с основанием b. Для перевода в 10-ю систему необходимо
+                  каждый разряд числа умножить на bn, где n — номер разряда. Таким образом,
+                  <code>(a<sub>1</sub>a<sub>2</sub>a<sub>3</sub>)<sub>b</sub></code> = <code>(a<sub>1</sub>*b<sup>2</sup> + a<sub>2</sub>*b<sup>1</sup>
+                            + a<sub>3</sub>*b<sup>0</sup>)<sub>10</sub></code>.
+                </p>
+                <p class="about-notation__paragraph"><span>Пример:</span> <code>101<sub>2</sub></code> =
+                  <code>1*2<sup>2</sup> + 0*2<sup>1</sup> + 1*2<sup>0</sup></code> = <code>4+0+1</code> =
+                  <code>5<sub>10</sub></code>
+                </p>
+              </div>
+            </li>
+            <li class="about-notation__item">
+              <h3 class="about-notation__title">Перевод из десятичной системы счисления в другие</h3>
+              <div class="about-notation__text">
+                <ul class="about-notation__list_num">
+                  <h4 class="about-notation__descr"><span>Целая часть:</span></h4>
+                  <li class="about-notation__item_num">
+                    Последовательно делим целую часть десятичного числа на основание системы, в которую переводим,
+                    пока
+                    десятичное число не станет равно нулю.
+                  </li>
+                  <li class="about-notation__item_num">
+                    Полученные при делении остатки являются цифрами искомого числа. Число в новой системе записывают,
+                    начиная с последнего остатка.
+                  </li>
+                </ul>
+                <ul class="about-notation__list_num">
+                  <h4 class="about-notation__descr"><span>Дробная часть:</span></h4>
+                  <li class="about-notation__item_num">
+                    Дробную часть десятичного числа умножаем на основание системы, в которую требуется перевести.
+                    Отделяем целую часть. Продолжаем умножать дробную часть на основание новой системы, пока она не
+                    станет равной 0.
+                  </li>
+                  <li class="about-notation__item_num">
+                    Число в новой системе составляют целые части результатов умножения в порядке, соответствующем их
+                    получению.
+                  </li>
+                  <div class="about-notation__paragraph">
                     <span>Пример</span>: переведем <code>15<sub>10</sub></code> в восьмеричную:
-                  <div><code>15\8 = 1, остаток 7</code></div>
-                  <div><code>1\8 = 0, остаток 1</code></div>
-                  <div>Записав все остатки снизу вверх, получаем итоговое число <code>17</code>. Следовательно,
-                    <code>15<sub>10</sub></code> = <code>17<sub>8</sub></code>.
                   </div>
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+                  <div class="example-math-block">
+                    <div><code>15\8 = 1, остаток 7</code></div>
+                    <div><code>1\8 = 0, остаток 1</code></div>
+                    <div>Записав все остатки снизу вверх, получаем итоговое число <code>17</code>. Следовательно,
+                      <code>15<sub>10</sub></code> = <code>17<sub>8</sub></code>.
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="footer__container">
-        <div class="footer__body">
-          <p class="footer__p">© Коробков Л.А, 2023</p>
-          <p class="footer__p">Front-end Developer - <a class="footer__link"
-              href="https://github.com/Leonid-Korobkov">GitHub</a></p>
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>© Коробков Л.А, 2023–2026</p>
+        <div class="footer-links">
+          <a href="https://github.com/Leonid-Korobkov" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </footer>
   </div>
-
-  <!-- <div itemscope itemtype="http://schema.org/ImageObject">
-    <meta itemprop="name" content="Перевод систем счисления">
-    <img src="img/main-screen-for-yandex.png" alt="Интерфейс программы" itemprop="contentUrl" />
-    <meta itemprop="description" content="Интерфейс программы по переводу систем счисления">
-  </div> -->
 
   <script src="js/app.js"></script>
   <script>
@@ -350,12 +350,10 @@
         navigator.serviceWorker.register('/sw.js', { scope: '/math-project' }).then(
           function (registration)
           {
-            // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
           },
           function (err)
           {
-            // registration failed :(
             console.log('ServiceWorker registration failed: ', err);
           });
       });
