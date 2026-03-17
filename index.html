@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="yandex-verification" content="dd67fdbe15be69c3" />
+  <meta name="yandex-verification" content="c2b53a53c55390c5" />
 
   <meta name="description"
     content="Онлайн‑калькулятор перевода чисел между системами счисления (от 2 до 36) с подробным решением и дополнительными представлениями.">
@@ -15,10 +15,16 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Skynora" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+<<<<<<< HEAD
 
   <link rel="canonical" href="https://math.skynora.ru/" />
   <link rel="alternate" hreflang="ru-RU" href="https://math.skynora.ru/" />
   <link rel="alternate" hreflang="x-default" href="https://math.skynora.ru/" />
+=======
+  <link rel="canonical" href="https://leonid-korobkov.github.io/math-project/" />
+  <link rel="alternate" hreflang="ru-RU" href="https://leonid-korobkov.github.io/math-project/" />
+  <link rel="alternate" hreflang="x-default" href="https://leonid-korobkov.github.io/math-project/" />
+>>>>>>> parent of efe8c6b (fix)
   <title>Калькулятор перевода систем счисления — Notation</title>
 
   <link rel="stylesheet" href="css/style.css">
@@ -29,7 +35,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Notation">
   <meta name="apple-mobile-web-app-title" content="Notation">
-  <meta name="msapplication-starturl" content="https://math.skynora.ru/">
+  <meta name="msapplication-starturl" content="https://leonid-korobkov.github.io/math-project/">
 
   <meta name="theme-color" content="#0a0a0f">
 
@@ -38,8 +44,8 @@
     content="Онлайн‑калькулятор перевода чисел между системами счисления (2–36) с подробным решением и доп. представлениями." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Notation" />
-  <meta property="og:url" content="https://math.skynora.ru/" />
-  <meta property="og:image" content="https://math.skynora.ru/img/main-screen-notation.png" />
+  <meta property="og:url" content="https://leonid-korobkov.github.io/math-project/" />
+  <meta property="og:image" content="https://leonid-korobkov.github.io/math-project/img/main-screen-notation.png" />
   <meta property="og:image:alt" content="Интерфейс калькулятора перевода систем счисления" />
   <meta property="og:locale" content="ru_RU" />
 
@@ -47,7 +53,7 @@
   <meta name="twitter:title" content="Калькулятор перевода систем счисления — Notation" />
   <meta name="twitter:description"
     content="Онлайн‑калькулятор перевода чисел между системами счисления (2–36) с подробным решением." />
-  <meta name="twitter:image" content="https://math.skynora.ru/img/main-screen-notation.png" />
+  <meta name="twitter:image" content="https://leonid-korobkov.github.io/math-project/img/main-screen-notation.png" />
   <meta name="twitter:image:alt" content="Интерфейс калькулятора перевода систем счисления" />
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -63,24 +69,24 @@
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://math.skynora.ru/#organization",
+          "@id": "https://leonid-korobkov.github.io/math-project/#organization",
           "name": "Skynora",
-          "url": "https://math.skynora.ru/",
-          "logo": "https://math.skynora.ru/img/logo.png"
+          "url": "https://leonid-korobkov.github.io/math-project/",
+          "logo": "https://leonid-korobkov.github.io/math-project/img/logo.png"
         },
         {
           "@type": "WebSite",
-          "@id": "https://math.skynora.ru/#website",
-          "url": "https://math.skynora.ru/",
+          "@id": "https://leonid-korobkov.github.io/math-project/#website",
+          "url": "https://leonid-korobkov.github.io/math-project/",
           "name": "Notation",
-          "publisher": { "@id": "https://math.skynora.ru/#organization" },
+          "publisher": { "@id": "https://leonid-korobkov.github.io/math-project/#organization" },
           "inLanguage": "ru-RU"
         },
         {
           "@type": "WebApplication",
-          "@id": "https://math.skynora.ru/#webapp",
+          "@id": "https://leonid-korobkov.github.io/math-project/#webapp",
           "name": "Notation",
-          "url": "https://math.skynora.ru/",
+          "url": "https://leonid-korobkov.github.io/math-project/",
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "inLanguage": "ru-RU",
@@ -394,7 +400,7 @@
     {
       window.addEventListener('load', function ()
       {
-        navigator.serviceWorker.register('/js/sw.js', { scope: '/' }).then(
+        navigator.serviceWorker.register('/sw.js', { scope: '/math-project' }).then(
           function (registration)
           {
             // Registration was successful
