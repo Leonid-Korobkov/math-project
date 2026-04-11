@@ -9,9 +9,47 @@ const formNumberWrapper = document.querySelector(
   '.converter-block__input-wrapper',
 )
 const currentYearEl = document.querySelector('#current-year')
+const skynoraPopup = document.querySelector('[data-skynora-popup]')
+const skynoraPopupClose = document.querySelector('[data-skynora-popup-close]')
+const skynoraPopupShownKey = 'skynora-popup-shown'
+const skynoraPopupClosedKey = 'skynora-popup-closed'
+const skynoraPopupDelay = 5000
 
 if (currentYearEl) {
   currentYearEl.textContent = new Date().getFullYear()
+}
+
+function showSkynoraPopup() {
+  if (!skynoraPopup) return
+
+  skynoraPopup.classList.add('is-visible')
+  skynoraPopup.setAttribute('aria-hidden', 'false')
+}
+
+function hideSkynoraPopup(persistClose = false) {
+  if (!skynoraPopup) return
+
+  skynoraPopup.classList.remove('is-visible')
+  skynoraPopup.setAttribute('aria-hidden', 'true')
+
+  if (persistClose) {
+    localStorage.setItem(skynoraPopupClosedKey, 'true')
+  }
+}
+
+function maybeShowSkynoraPopup() {
+  if (!skynoraPopup) return
+  if (localStorage.getItem(skynoraPopupShownKey) === 'true') return
+  if (localStorage.getItem(skynoraPopupClosedKey) === 'true') return
+
+  localStorage.setItem(skynoraPopupShownKey, 'true')
+  window.setTimeout(showSkynoraPopup, skynoraPopupDelay)
+}
+
+if (skynoraPopupClose) {
+  skynoraPopupClose.addEventListener('click', function () {
+    hideSkynoraPopup(true)
+  })
 }
 
 function syncEmptySections() {
@@ -248,6 +286,7 @@ function renderResultAndSolution() {
     })
   }
   syncEmptySections()
+  maybeShowSkynoraPopup()
 
   formNumber.blur()
 
